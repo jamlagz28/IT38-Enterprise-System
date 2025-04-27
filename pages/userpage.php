@@ -1,9 +1,19 @@
+<?php
+session_start();
+
+// Check if user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bukid Crafts</title>
+  <title>Bukid Crafts - User Page</title>
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
@@ -13,16 +23,16 @@
       <nav>
         <h4>Menu</h4>
         <ul>
-          <li><a>Dashboard</a></li>
-          <li>Account</li>
-          <li>Write a Review</li>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Write a Review</a></li>
         </ul>
         <h4>Others</h4>
         <ul>
-          <li>Settings</li>
-          <li class="active">Payment</li>
-          <li>Delivery</li>
-          <li>Help</li>
+          <li><a href="#">Settings</a></li>
+          <li class="active"><a href="#">Payment</a></li>
+          <li><a href="#">Delivery</a></li>
+          <li><a href="#">Help</a></li>
         </ul>
       </nav>
     </aside>
@@ -30,7 +40,7 @@
     <main class="content">
       <header class="header">
         <input type="text" placeholder="Search...">
-        <div class="user-info">👤 User Acc</div>
+        <div class="user-info">👤 <?= htmlspecialchars($_SESSION['username']) ?></div>
       </header>
 
       <section class="items-grid">
@@ -53,23 +63,16 @@
         </div>
 
         <div class="item-preview">
-
           <div class="preview-box">Image</div>
-
           <div class="item-info"> 
-
             <div class="item-text">
-
                 <h4>Item name</h4>
                 <p>PHP: 0000</p>
                 <h5>Description</h5>
                 <p>Item description goes here...</p>
-
                 <button class="item-info button">BUY 🛒</button>
-              </div>
-
+            </div>
           </div>
-
         </div>
       </section>
     </main>

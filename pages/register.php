@@ -15,14 +15,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $fullname = $_POST['fullname'];
     $password = $_POST['password'];
+    $username = $_POST['username']; // Capture username
 
-    // Simple validation (in a real system, you should validate the email, check password strength, etc.)
-    if (empty($email) || empty($fullname) || empty($password)) {
+    // Simple validation
+    if (empty($email) || empty($fullname) || empty($password) || empty($username)) {
         $error = 'All fields are required';
     } else {
-        // Dummy registration logic (store in session for now)
-        $_SESSION['username'] = $fullname; // Using full name as username
-        header("Location: index.php"); // Redirect to home page after registration
+        // Dummy registration logic (no storing in database for now)
+        // Redirect to login page after successful registration
+        header("Location: index.php");
         exit();
     }
 }
@@ -39,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D&fbclid=IwY2xjawJ21rxleHRuA2FlbQIxMABicmlkETBMU3hCc1ZjNFpRcndwdzJxAR4NSWeL1kOJKpfGj6eQN6BGCuCRyVFK5NtOzISyK0l7r1UyMohAhoOarbJ5pQ_aem_2aBVxI4J6j4krZnupRzFKA');
+            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -124,11 +125,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             text-align: center;
             margin-bottom: 15px;
         }
+        .login-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .login-link a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
         <span class="navbar-brand">Bukid Crafts</span>
         <a href="index.php">Home</a>
@@ -139,7 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <a href="cart.php">Cart</a>
     </nav>
 
-    <!-- Register Form Section -->
     <div class="container">
         <div class="register-form">
             <div class="brand-name">Bukid Crafts</div>
@@ -150,16 +162,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <?php endif; ?>
 
             <form action="register.php" method="POST">
+                <input type="text" name="username" placeholder="Username" required> <!-- Added Username Field -->
                 <input type="email" name="email" placeholder="Email Address" required>
                 <input type="text" name="fullname" placeholder="Full Name" required>
                 <input type="password" name="password" placeholder="Password" required>
                 <button type="submit">Create an Account</button>
             </form>
+
+            <div class="login-link">
+                Already have an account? <a href="index.php">Login</a>
+            </div>
         </div>
     </div>
-
-    <!-- Side Text -->
-    <div class="side-text">Bukidnon Handicrafts</div>
 
 </body>
 </html>

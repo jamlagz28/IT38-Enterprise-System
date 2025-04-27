@@ -2,9 +2,9 @@
 // Start the session for the login system
 session_start();
 
-// Check if the user is logged in, if not redirect to login page
+// Check if the user is already logged in, if yes redirect to userpage.php
 if (isset($_SESSION['username'])) {
-    header("Location: dashboard.php");
+    header("Location: userpage.php");
     exit();
 }
 
@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Dummy credentials (you should replace this with a proper user authentication system)
+    // Dummy credentials (you should replace this with a real authentication system)
     $valid_username = 'admin';
-    $valid_password = 'password123'; // In a real system, you should hash the password
+    $valid_password = 'password123'; // In a real system, you should hash passwords
 
     if ($username === $valid_username && $password === $valid_password) {
         // Store the username in the session to keep the user logged in
         $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
+        header("Location: userpage.php"); // Redirect to userpage.php after login
         exit();
     } else {
         $error = 'Invalid username or password';
@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <style>
         body {
             font-family: 'Open Sans', sans-serif;
-            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D&fbclid=IwY2xjawJ21rxleHRuA2FlbQIxMABicmlkETBMU3hCc1ZjNFpRcndwdzJxAR4NSWeL1kOJKpfGj6eQN6BGCuCRyVFK5NtOzISyK0l7r1UyMohAhoOarbJ5pQ_aem_2aBVxI4J6j4krZnupRzFKA');
+            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
             background-size: cover;
             background-position: center;
             margin: 0;
@@ -76,7 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 80vh;
+            margin-top: 80px; /* Added margin to move the container below the navbar */
+            height: auto; /* Adjusted height to auto to avoid stretching the container */
         }
         .login-form {
             background-color: rgba(255, 255, 255, 0.8);
@@ -91,11 +92,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             font-size: 18px;
         }
         .login-form .brand-name {
-            font-size: 36px; /* Larger font size for the brand name */
+            font-size: 28px;  /* Adjusted font size */
             font-weight: bold;
-            text-align: center; /* Center the text */
-            margin-bottom: 20px; /* Space between the brand name and login */
-            color: #333; /* Dark color for visibility */
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Ensure it stays inside the container */
+            text-overflow: ellipsis; /* Adds '...' if the text overflows */
         }
         .login-form input[type="text"],
         .login-form input[type="password"] {
@@ -147,27 +151,36 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             font-size: 14px;
             color: #333;
         }
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .signup-link a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Navbar -->
     <nav>
-        <span class="navbar-brand">Bukid Crafts</span> <!-- Non-clickable brand name -->
+        <span class="navbar-brand">Bukid Crafts</span>
         <a href="index.php">Home</a>
         <a href="register.php">Register</a>
-        <a href="dashboard.php">Dashboard</a>
         <a href="products.php">Products</a>
         <a href="about.php">About Us</a>
         <a href="cart.php">Cart</a>
-        <a href="..pages/register.php">Register</a>
     </nav>
 
-    <!-- Login Form Section -->
     <div class="container">
         <div class="login-form">
-            <div class="brand-name">Bukidnon Handicrafts</div> <!-- Updated brand name style -->
-            <h2>Login</h2> <!-- Now "Login" is separate from the brand name -->
+            <div class="brand-name">Bukidnon Handicrafts</div>
+            <h2>Login</h2>
 
             <?php if ($error): ?>
                 <p class="error-message"><?= $error ?></p>
@@ -176,21 +189,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <form action="index.php" method="POST">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
+
                 <button type="submit">Login</button>
             </form>
 
-            <!-- Add "or continue" text -->
-            <p class="or-continue">or continue</p> <!-- This adds the "or continue" text below the "Login" -->
+            <div class="signup-link">
+                Don't have an account? <a href="register.php">Sign up here</a>
+            </div>
 
-            <!-- Social Login Options -->
+            <p class="or-continue">or continue</p>
+
             <div class="social-login">
-                <!-- Facebook Login (Replace link with actual OAuth flow) -->
                 <a href="facebook-login.php">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Login with Facebook">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Login with Facebook">
                 </a>
-                <!-- Google Login (Replace link with actual OAuth flow) -->
                 <a href="google-login.php">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Login with Google">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" alt="Login with Google">
                 </a>
             </div>
         </div>
