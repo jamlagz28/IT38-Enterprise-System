@@ -1,31 +1,47 @@
 <?php
-// Start the session for the login system
+// Start session
 session_start();
 
-// Check if the user is already logged in, if yes redirect to userpage.php
+// Redirect if already logged in
 if (isset($_SESSION['username'])) {
-    header("Location: userpage.php");
+    header("Location: ../../pages/products.php");
     exit();
 }
 
-$error = ''; // Variable to store error message
+// Include DB connection
+require_once '../../db/config.php';
 
-// Process the login form submission
+$error = ''; // For error messages
+
+// Process login form
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Dummy credentials (you should replace this with a real authentication system)
-    $valid_username = 'admin';
-    $valid_password = 'password123'; // In a real system, you should hash passwords
+    // Secure query
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    if ($stmt) {
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
-    if ($username === $valid_username && $password === $valid_password) {
-        // Store the username in the session to keep the user logged in
-        $_SESSION['username'] = $username;
-        header("Location: userpage.php"); // Redirect to userpage.php after login
-        exit();
-    } else {
+        // Check if a user with the given username exists
+        if ($result->num_rows === 1) {
+            $user = $result->fetch_assoc();
+
+            // Compare plaintext password
+            if ($password === $user['password']) {
+                $_SESSION['username'] = $user['username'];
+                header("Location: ../../pages/products.php");
+                exit();
+            }
+        }
+        
+        // If we reached here, either the username or password is incorrect
         $error = 'Invalid username or password';
+        $stmt->close();
+    } else {
+        $error = 'Database error';
     }
 }
 ?>
@@ -34,7 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bukidnon Handicrafts - Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -76,8 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-top: 80px; /* Added margin to move the container below the navbar */
-            height: auto; /* Adjusted height to auto to avoid stretching the container */
+            margin-top: 80px;
         }
         .login-form {
             background-color: rgba(255, 255, 255, 0.8);
@@ -92,14 +106,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             font-size: 18px;
         }
         .login-form .brand-name {
-            font-size: 28px;  /* Adjusted font size */
+            font-size: 28px;
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
             color: #333;
-            white-space: nowrap; /* Prevent text from wrapping */
-            overflow: hidden; /* Ensure it stays inside the container */
-            text-overflow: ellipsis; /* Adds '...' if the text overflows */
         }
         .login-form input[type="text"],
         .login-form input[type="password"] {
@@ -183,13 +194,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <h2>Login</h2>
 
             <?php if ($error): ?>
-                <p class="error-message"><?= $error ?></p>
+                <p class="error-message"><?= htmlspecialchars($error) ?></p>
             <?php endif; ?>
 
             <form action="index.php" method="POST">
                 <input type="text" name="username" placeholder="Username" required>
                 <input type="password" name="password" placeholder="Password" required>
-
                 <button type="submit">Login</button>
             </form>
 
