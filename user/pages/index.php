@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
 
     // Secure query
-    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT * FROM register WHERE username = ?");
     if ($stmt) {
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -29,8 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result->num_rows === 1) {
             $user = $result->fetch_assoc();
 
-            // Compare plaintext password
-            if ($password === $user['password']) {
+            // Verify the hashed password
+            if (password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
                 header("Location: ../../pages/products.php");
                 exit();
