@@ -8,51 +8,125 @@ if (isset($_SESSION['email'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | Bukid Crafts</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I=');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
 
-        <title>Login | Life Style Store</title>
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 15px;
+        }
 
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
-        <script src="js/jquery.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </head>
+        .form-wrapper {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            color: #333;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
 
-    <body>
-        <?php include 'includes/header.php'; ?>
-        <div id="content">
-            <div class="container-fluid decor_bg" id="login-panel">
-                <div class="col-lg-4 col-md-6">
-                    <img src="img/yess.jpg">
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-3 col-md-4">
-                        <div class="panel panel-primary" >
-                            <div class="panel-heading">
-                                <h4>LOGIN</h4>
-                            </div>
-                            <div class="panel-body">
-                                <p class="text-warning"><i>Login to make a purchase</i><p>
-                                <form action="login_submit.php" method="POST">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control"  placeholder="Email" autofocus="on" name="e-mail" required = "true">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password" name="password" required = "true">
-                                    </div>
-                                    
-                                    <button type="submit" name="submit" class="btn btn-primary">Login</button><br><br>
-                                    <?php if(isset($_GET['error'])) echo $_GET['error']; ?>
-                                </form><br/>
-                            </div>
-                            <div class="panel-footer"><p>Don't have an account? <a href="signup.php">Register</a></p></div>
-                        </div>
-                    </div>
-                </div>
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+            color: #5a4a3c;
+        }
+
+        .form-control {
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background-color: #6c584c;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 15px;
+        }
+
+        .btn-primary:hover {
+            background-color: #5a4a3c;
+        }
+
+        small.text-danger {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+
+        .panel-footer {
+            text-align: center;
+            font-size: 14px;
+            color: #6c584c;
+        }
+
+        .panel-footer a {
+            color: #6c584c;
+            text-decoration: underline;
+        }
+
+        .panel-footer a:hover {
+            color: #4e4232;
+        }
+
+        @media (max-width: 480px) {
+            .form-wrapper {
+                padding: 20px;
+            }
+        }
+    </style>
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <?php include 'includes/header.php'; ?>
+
+    <div class="overlay">
+        <div class="form-wrapper">
+            <h2>Login</h2>
+            <form action="login_submit.php" method="POST">
+                <input type="email" class="form-control" placeholder="Email Address" name="e-mail" required>
+                <input type="password" class="form-control" placeholder="Password" name="password" required>
+                <button type="submit" name="submit" class="btn btn-primary">Login</button>
+                <?php if (isset($_GET['error'])) echo "<small class='text-danger'>" . $_GET['error'] . "</small>"; ?>
+            </form>
+            <div class="panel-footer">
+                <p>Don't have an account? <a href="signup.php">Register</a></p>
             </div>
         </div>
+    </div>
 
-        <?php include 'includes/footer.php'; ?>
-    </body>
+    <?php include 'includes/footer.php'; ?>
+
+</body>
+
 </html>
