@@ -1,200 +1,163 @@
 <?php
-// Start the session for the login system
-session_start();
-
-// Check if the user is logged in, if not redirect to login page
-if (isset($_SESSION['username'])) {
-    header("Location: dashboard.php");
-    exit();
-}
-
-$error = ''; // Variable to store error message
-
-// Process the login form submission
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Dummy credentials (you should replace this with a proper user authentication system)
-    $valid_username = 'admin';
-    $valid_password = 'password123'; // In a real system, you should hash the password
-
-    if ($username === $valid_username && $password === $valid_password) {
-        // Store the username in the session to keep the user logged in
-        $_SESSION['username'] = $username;
-        header("Location: dashboard.php");
-        exit();
-    } else {
-        $error = 'Invalid username or password';
-    }
-}
+// establish the connection to database, and start the session
+require("includes/common.php");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bukidnon Handicrafts - Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome | Bukid Crafts</title>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
     <style>
         body {
-            font-family: 'Open Sans', sans-serif;
-            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D&fbclid=IwY2xjawJ21rxleHRuA2FlbQIxMABicmlkETBMU3hCc1ZjNFpRcndwdzJxAR4NSWeL1kOJKpfGj6eQN6BGCuCRyVFK5NtOzISyK0l7r1UyMohAhoOarbJ5pQ_aem_2aBVxI4J6j4krZnupRzFKA');
+            font-family: 'Poppins', sans-serif;
+            background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
             background-size: cover;
-            background-position: center;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            padding-top: 50px;
+            color: #fff;
         }
-        nav {
-            background-color: rgba(51, 51, 51, 0.7);
-            padding: 15px;
-            color: white;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            margin: 0 10px;
-            font-weight: bold;
-        }
-        nav a:hover {
-            background-color: #575757;
-        }
-        .navbar-brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
-            margin-right: 20px;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-        }
-        .login-form {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            width: 300px;
-        }
-        .login-form h2 {
+
+        #banner_image {
+            background-color: rgba(0, 0, 0, 0.65);
+            padding: 80px 0;
             text-align: center;
-            margin-bottom: 0;
+        }
+
+        #banner_content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 48px;
+            color: #f5e9d6;
+        }
+
+        #banner_content p {
             font-size: 18px;
+            color: #f2f2f2;
         }
-        .login-form .brand-name {
-            font-size: 36px; /* Larger font size for the brand name */
-            font-weight: bold;
-            text-align: center; /* Center the text */
-            margin-bottom: 20px; /* Space between the brand name and login */
-            color: #333; /* Dark color for visibility */
+
+        .btn-custom {
+            background-color: #8B4513;
+            border-color: #8B4513;
+            color: #fff;
         }
-        .login-form input[type="text"],
-        .login-form input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+
+        .btn-custom:hover {
+            background-color: #5c3317;
+            border-color: #5c3317;
         }
-        .login-form button {
-            width: 100%;
-            padding: 10px;
-            background-color: #333;
-            color: white;
+
+        .caption h3 {
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .caption p {
+            color: #e0e0e0;
+        }
+
+        .thumbnail {
+            background-color: rgba(0, 0, 0, 0.6);
             border: none;
-            border-radius: 4px;
-            cursor: pointer;
+            border-radius: 10px;
         }
-        .login-form button:hover {
-            background-color: #575757;
+
+        .thumbnail img {
+            border-radius: 10px 10px 0 0;
         }
-        .error-message {
-            color: red;
+
+        .container h2 {
+            font-family: 'Playfair Display', serif;
+            margin-top: 30px;
+            margin-bottom: 30px;
             text-align: center;
-            margin-bottom: 15px;
-        }
-        .social-login {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .social-login a {
-            width: 45%;
-            margin: 5px;
-            text-align: center;
-        }
-        .social-login img {
-            width: 50px;
-            height: 50px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
-        .social-login img:hover {
-            transform: scale(1.1);
-        }
-        .or-continue {
-            text-align: center;
-            margin: 15px 0;
-            font-size: 14px;
-            color: #333;
+            color: #f8f8f8;
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <?php include 'includes/header.php'; ?>
+    <!-- Header end -->
 
-    <!-- Navbar -->
-    <nav>
-        <span class="navbar-brand">Bukid Crafts</span> <!-- Non-clickable brand name -->
-        <a href="index.php">Home</a>
-        <a href="register.php">Register</a>
-        <a href="dashboard.php">Dashboard</a>
-        <a href="products.php">Products</a>
-        <a href="about.php">About Us</a>
-        <a href="cart.php">Cart</a>
-        <a href="..pages/register.php">Register</a>
-    </nav>
-
-    <!-- Login Form Section -->
-    <div class="container">
-        <div class="login-form">
-            <div class="brand-name">Bukidnon Handicrafts</div> <!-- Updated brand name style -->
-            <h2>Login</h2> <!-- Now "Login" is separate from the brand name -->
-
-            <?php if ($error): ?>
-                <p class="error-message"><?= $error ?></p>
-            <?php endif; ?>
-
-            <form action="index.php" method="POST">
-                <input type="text" name="username" placeholder="Username" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-
-            <!-- Add "or continue" text -->
-            <p class="or-continue">or continue</p> <!-- This adds the "or continue" text below the "Login" -->
-
-            <!-- Social Login Options -->
-            <div class="social-login">
-                <!-- Facebook Login (Replace link with actual OAuth flow) -->
-                <a href="facebook-login.php">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Login with Facebook">
-                </a>
-                <!-- Google Login (Replace link with actual OAuth flow) -->
-                <a href="google-login.php">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/1200px-Google_2015_logo.svg.png" alt="Login with Google">
-                </a>
+    <div id="content">
+        <!-- Main banner image -->
+        <div id="banner_image">
+            <div class="container">
+                <div id="banner_content">
+                    <h1>Discover Authentic Bukid Crafts</h1>
+                    <p>Flat 40% OFF on authentic handmade products</p>
+                    <br/>
+                    <a 
+                        href="<?php echo isset($_SESSION['email']) ? 'products.php' : 'login.php'; ?>" 
+                        class="btn btn-custom btn-lg"
+                    >
+                        Shop Now
+                    </a>
+                </div>
             </div>
         </div>
+        <!-- Main banner image end -->
+
+        <!-- Item categories listing -->
+        <div class="container">
+            <h2>Bukidnon Handicrafts Categories</h2>
+            <div class="row text-center" id="item_list">
+                <div class="col-sm-4">
+                    <a href="products.php#bags">
+                        <div class="thumbnail">
+                            <img src="img/1.jpg" alt="Crafted Bags">
+                            <div class="caption">
+                                <h3>Weaving and Textiles</h3>
+                                <p>Traditional fabrics woven by Bukidnon artisans, crafted with intricate patterns and vibrant native dyes.</p>
+                            </div>
+                        </div> 
+                    </a>
+                </div>
+
+                <div class="col-sm-4">
+                    <a href="products.php#accessories">
+                        <div class="thumbnail">
+                            <img src="img/bamboo.jpg" alt="Beaded Accessories">
+                            <div class="caption">
+                                <h3>Woodcraft and Bamboo</h3>
+                                <p>Hand-carved home decor and functional items crafted by local artisans using sustainable wood and bamboo.</p>
+                            </div>
+                        </div> 
+                    </a>
+                </div>
+
+                <div class="col-sm-4">
+                    <a href="products.php#shirts">
+                        <div class="thumbnail">
+                            <img src="img/bead.jpg" alt="Handmade Shirts">
+                            <div class="caption">
+                                <h3>Beadwork and Accessories</h3>
+                                <p>Intricately crafted bead accessories made by Bukidnon artisans, showcasing vibrant patterns and cultural heritage.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Item categories listing end -->
     </div>
 
-</body>
+    <!-- Footer -->
+    <?php include 'includes/footer.php'; ?>
+    <!-- Footer end -->
+</body> 
 </html>
