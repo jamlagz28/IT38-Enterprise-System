@@ -1,0 +1,669 @@
+html {
+  overflow-x: hidden; 
+}
+body#pre_index {
+  background: url("img\Cover.jpg") no-repeat;
+  background-size: cover;
+  font-family: 'Courgette', cursive;
+}
+
+body#pre_index #pre_index_title {
+  position: absolute;
+  top: 28%;
+  left: 24%;
+  font-size: 11.1rem;
+  font-family: 'Courgette', cursive;
+}
+
+body#pre_index #pre_index_text_title {
+  position: absolute;
+  top: 57%;
+  left: 31%;
+  font-family: 'Courgette', cursive;
+}
+
+body#pre_index #pre_index_Button {
+  position: absolute;
+  top: 73%;
+  left: 44%;
+}
+body#pre_index #pre_index_Button:hover {
+  background-color: transparent;
+  transform: scale(1.2);
+}
+body#Index {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 300;
+  color: #000;
+  background-color: #f4ede5; }
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 200; }
+
+h1, h2 {
+  font-weight: 200;
+  margin-top: 50px;
+ }
+
+
+
+.subheading {
+
+  color: black; }
+
+.bg-white {
+  background-color: #fff; }
+
+.bg-grey {
+  background-color: #f7f8f9; }
+
+a {
+  color: black; }
+
+a:focus,
+button:focus {
+  outline: none;
+  box-shadow: none; }
+
+
+.btn:hover,
+a:hover {
+  text-decoration: none;
+  color: #002D62; }
+
+.btn-icon {
+  display: inline-flex;
+  align-items: center; }
+  .btn-icon .lnr {
+    font-size: 30px;
+    margin-right: 10px; }
+
+.boxed-page {
+  position: relative;
+  border-color: #ededed;
+  background-color: #fff; }
+  .boxed-page .section-padding {
+    padding-top: 65px;
+    padding-bottom: 65px; }
+  @media (min-width: 992px) {
+    .boxed-page .section-padding {
+      padding-top: 130px;
+      padding-bottom: 130px; } }
+
+@media (min-width: 1200px) {
+  .boxed-page {
+    margin: 30px; } }
+
+.img-bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center; }
+
+.img-cover {
+  object-fit: cover;
+  object-position: center; }
+
+.navbar-brand-center {
+  padding-left: 70px;
+  padding-right: 70px; }
+  .navbar-brand-center img {
+    height: 50px; }
+
+.footer-logo {
+  height: 50px; }
+
+.nav-link {
+  color: #000; }
+
+#navbar-header {
+  height: 100px; }
+  #navbar-header .navbar-nav .dropdown-menu {
+    border: none;
+    border-bottom: 2px solid #7CB9E8;
+    border-radius: 0 !important;
+    box-shadow: -5px 8px 20px 0px rgba(229, 16, 2, 0.15); }
+
+@media (min-width: 1024px) {
+  #navbar-header .navbar-nav {
+    width: 50%; }
+  #navbar-header .dropdown .dropdown-menu {
+    display: block;
+    opacity: 0;
+    transition: all 500ms ease; }
+  #navbar-header .dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1; } }
+
+    
+
+
+    
+.btn {
+  font-size: 14px;
+  font-weight: 600; }
+
+.btn-primary {
+  background-color: #7CB9E8;
+  border-color: #7CB9E8;
+  color: white;
+  border-radius: 30px;
+  padding: 9px 10px;
+  margin-top: -3%;
+  text-transform: capitalize;
+  -webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s; }
+  .btn-primary:hover {
+    background-color: #0066b2;
+    border-color: #0066b2;
+    color: #fff; }
+    
+
+.btn-shadow {
+  box-shadow: -5px 8px 20px 0px rgba(25, 20, 161, 0.15); }
+
+.btn-icon {
+  color: #000; }
+
+  /* Default state for the button */
+.btn-outline-danger {
+  border-color: #7CB9E8; /* Blue border */
+  color: #7CB9E8; /* Blue text */
+  display: flex;
+  align-items: center; /* Center the content vertically */
+  padding: 8px 16px; /* Adjust the padding to ensure space for the icon */
+  text-decoration: none; /* Remove underline from the link */
+}
+
+/* On hover */
+.btn-outline-danger:hover {
+  border-color: #0066b2; /* Blue border on hover */
+  color: white; /* White text on hover */
+  background-color: #0066b2; /* Blue background on hover */
+}
+
+/* Optional: Adjust the icon opacity on hover */
+.btn-outline-danger .fa {
+  opacity: 1;
+}
+
+.btn-outline-danger:hover .fa {
+  opacity: 0.8; /* Slightly reduce icon opacity on hover */
+}
+
+
+  
+.hero {
+  height: 600px;
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .hero {
+    height: calc(100vh - 130px); 
+  }
+}
+
+.hero-info {
+  padding-top: 60px;
+}
+
+@media (min-width: 1420px) {
+  .hero-info {
+    padding-top: 140px; 
+  }
+}
+
+.hero-info li {
+  padding-right: 15px;
+  padding-left: 15px; 
+}
+
+.hero-info .lnr {
+  display: block;
+  font-size: 32px;
+  margin-bottom: 15px; 
+}
+
+.hero-carousel .owl-prev, .hero-carousel .owl-next {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border-radius: 50%; /* Makes the buttons round */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.hero-carousel .owl-prev {
+  left: 10px; /* Position to the left of the image */
+}
+
+.hero-carousel .owl-next {
+  right: 10px; /* Position to the right of the image */
+}
+
+.hero-carousel .owl-nav {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  justify-content: space-between;
+  transform: translateY(-50%); /* Center vertically */
+}
+
+.hero-carousel .owl-item img {
+  width: 80%;   /* Adjust image width */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover;
+  max-width: 100%;
+}
+
+@media (min-width: 992px) {
+  .hero-carousel .owl-item img {
+    width: 100%; /* Adjust image width for larger screens */
+    height: auto; 
+  }
+}
+
+.thumb-menu img {
+  height: 150px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  box-shadow: 0px 24px 48px -12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.heading-section {
+  margin-bottom: 30px; 
+}
+
+
+
+/*============================
+=            MENU            =
+============================*/
+.menus {
+  display: flex; /* Use flexbox to stack the image and text vertically */
+  flex-direction: column; /* Arrange items vertically (image on top, description below) */
+  align-items: center; /* Center the content horizontally */
+  margin-bottom: 15px;
+  text-align: center; /* Center the text */
+  padding-bottom: 0;
+}
+
+.menu-img {
+  height: 150px; /* Increased height for the image */
+  width: 300px; /* Increased width for the image */
+  margin-bottom: 10px; /* Add space between the image and the text */
+  border-radius: 0; /* Ensure the image is square (no rounded corners) */
+}
+
+.menu-img img {
+  transition: all 0.5s ease;
+  width: 100%; /* Ensures the image fills the container */
+  height: 100%; /* Ensures the image fills the container */
+  object-fit: cover; /* Ensures the image covers the entire container */
+  border-radius: 0; /* Remove any border radius to avoid circle shape */
+}
+
+.menus .text-wrap {
+  margin-top: 10px; /* Space between the image and the description */
+  margin-bottom: 40px;
+}
+
+.menus p, .menus h3 {
+  margin-bottom: 20px; /* Adjusts space between the heading and paragraph */
+}
+
+.menus h3 {
+  font-size: 14px; /* Smaller font size for the product name */
+}
+
+.menus .text-wrap h4 {
+  font-weight: 300;
+}
+
+.menus:hover img {
+  transform: scale(1.1, 1.1); /* Hover effect for scaling the image */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .menus {
+    text-align: left; /* Align text to the left on smaller screens */
+  }
+
+  .menu-img {
+    height: 120px; /* Adjust the image size for smaller screens */
+    width: 120px; /* Adjust the image size for smaller screens */
+    margin-bottom: 15px; /* More space below the image on smaller screens */
+  }
+
+  .menus .text-wrap {
+    width: 100%; /* Ensure the text takes full width on smaller screens */
+  }
+
+  .menus h3 {
+    font-size: 12px; /* Even smaller font size for smaller screens */
+  }
+}
+
+/*=====  End of MENU  ======*/
+
+/*===============================
+=            OVERLAY            =
+===============================*/
+.overlay {
+  position: relative; }
+
+.overlay:after {
+  position: absolute;
+  display: block;
+  content: "";
+  background: #000;
+  opacity: 0.2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+
+.overlay .section-content {
+  position: relative;
+  z-index: 1; 
+  height: 110%;
+  border-radius: 15px;
+}
+
+/*=====  End of OVERLAY  ======*/
+
+/*===============================
+=            SideNav            =
+===============================*/
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1002;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+  color: #fff; }
+
+.sidenav-content {
+  padding: 8px 32px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86), opacity 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
+
+.in .sidenav-content {
+  transform: translateY(0);
+  opacity: 1;
+  transition: transform 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.5s, opacity 0.5s 0.5s; }
+
+.sidenav a {
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s; }
+
+.sidenav a:hover {
+  color: #f1f1f1; }
+
+.sidenav #side-nav-close,
+.sidenav #side-search-close {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px; }
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px; }
+  .sidenav a {
+    font-size: 18px; } }
+
+#side-search .form-control {
+  background-color: transparent; }
+
+#side-search .input-group-text {
+  background: transparent;
+  color: #fff; }
+
+#canvas-overlay {
+  content: '';
+  background: #000;
+  opacity: 0;
+  display: block;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1001;
+  visibility: hidden;
+  transition: opacity 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86), visibility 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86); }
+
+.sidenav-open #canvas-overlay,
+.sidesearch-open #canvas-overlay {
+  max-width: 100%;
+  opacity: .4;
+  visibility: visible; }
+
+/*=====  End of SideNav  ======*/
+/*======================================
+=            Special Dishes            =
+======================================*/
+#gtco-special-dishes .special-number {
+  position: relative;
+  font-size: 60px; }
+  #gtco-special-dishes .special-number:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 90px;
+    width: 200px;
+    height: 1px;
+    background: #000; }
+
+#gtco-special-dishes h3 span {
+  color:#7CB9E8 ; }
+
+.dishes-text {
+  padding-left: 90px; }
+
+/*=====  End of Special Dishes  ======*/
+/*==================================
+=            RESPONSIVE            =
+==================================*/
+.only-mobile {
+  display: none !important; }
+
+@media (max-width: 992px) {
+  .hero {
+    height: 100%; }
+  .boxed-page {
+    padding-top: 100px; }
+  #navbar-header {
+    position: fixed;
+    top: 0;
+    height: auto;
+    width: 100%;
+    background-color: #fff;
+    z-index: 11;
+    padding-top: 15px;
+    padding-bottom: 15px; }
+    #navbar-header .dropdown-menu {
+      box-shadow: none !important; }
+    #navbar-header .navbar-collapse {
+      margin-top: 15px;
+      background: #fff !important; }
+  .only-mobile {
+    display: block !important; }
+  .only-desktop {
+    display: none !important; }
+  .menu-wrap {
+    margin-bottom: 30px; }
+  .footer-widget {
+    margin-bottom: 30px; }
+  .hero-left {
+    padding-top: 30px;
+    padding-bottom: 30px; } }
+
+@media (max-width: 767px) {
+  .hero-left,
+  .hero-carousel .owl-item img {
+    height: 600px; }
+  .thumb-menu img {
+    height: 90px; }
+  .img-2 {
+    height: 500px; } }
+
+/*=====  End of RESPONSIVE  ======*/
+
+/* Container for the entire reviews section */
+#gtco-reviews-container {
+  width: 90%; /* Makes the container take up 90% of the width of the screen */
+  max-width: 1200px; /* Limits the maximum width */
+  margin: 0 auto; /* Centers the container horizontally */
+  padding: 0 15px; /* Adds horizontal padding */
+}
+
+/* Customer Reviews Section */
+#gtco-reviews {
+  background-color: #f8f9fa; /* Light gray background */
+  padding: 60px 0; /* Adds top and bottom padding */
+}
+
+/* Title of the reviews section */
+#gtco-reviews h2 {
+  font-size: 2rem; /* Adjust the size of the heading */
+  margin-bottom: 40px; /* Adds space below the heading */
+  color: #333; /* Dark color for the text */
+  text-align: center; /* Centers the title */
+}
+
+/* Review Box Styling */
+.review-box {
+  background-color: #fff; /* White background for each review box */
+  padding: 20px; /* Adds padding inside the review box */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition on hover */
+  margin-bottom: 30px; /* Adds space below each review box */
+}
+
+/* Hover effect for review boxes */
+.review-box:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Slightly deeper shadow on hover */
+  transform: translateY(-5px); /* Slight lift effect on hover */
+}
+
+/* Review Text */
+.review-text {
+  font-size: 1rem; /* Adjust the font size for review text */
+  color: #555; /* Lighter gray color for the review text */
+  margin-bottom: 20px; /* Adds space below the text */
+  font-style: italic; /* Italicize the review text */
+}
+
+/* Customer Name Styling */
+.customer-name {
+  font-size: 1.1rem; /* Slightly larger text for the customer's name */
+  font-weight: 600; /* Make the name bold */
+  color: #7CB9E8; /* Dark color for the name */
+  text-align: right; /* Align the name to the right */
+}
+
+/* Flexbox for review layout */
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Ensures items wrap to the next line if needed */
+}
+
+.col-md-4 {
+  width: 30%; /* Sets each review box width to 30% */
+  margin-bottom: 30px; /* Adds space below each box */
+}
+
+@media (max-width: 767px) {
+  .row {
+      flex-direction: column; /* Stack the reviews on smaller screens */
+  }
+
+  .col-md-4 {
+      width: 100%; /* Full width on smaller screens */
+  }
+}
+
+
+
+/* Section styling */
+#why-choose-us {
+  background-color: #f8f9fa; /* Light background color for the section */
+  padding: 60px 0;
+}
+
+/* Heading section */
+#why-choose-us .heading-section h2 {
+  font-size: 2rem;
+  font-weight: 200;
+  margin-bottom: 20px;
+  color: #333; /* Darker color for the heading */
+}
+
+#why-choose-us .heading-section p {
+  font-size: 1.1rem;
+  color: #666; /* Medium gray for the subtext */
+  margin-bottom: 40px;
+}
+
+/* Feature box styling */
+#why-choose-us .feature-box {
+  background-color: rgba(255, 255, 255, 0.534); /* White background for contrast */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#why-choose-us .feature-box h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333; /* Dark text for the heading */
+  margin-top: 20px;
+}
+
+#why-choose-us .feature-box p {
+  font-size: 1rem;
+  color: #666; /* Consistent gray text */
+  margin-top: 10px;
+}
+
+/* Hover effect for feature boxes */
+#why-choose-us .feature-box:hover {
+  background-color: #e9ecef; /* Slightly darker gray on hover */
+  transition: background-color 0.3s ease-in-out;
+}
+
+/* Responsive styling */
+@media (max-width: 767px) {
+  #why-choose-us .feature-box {
+      margin-bottom: 20px;
+  }
+}
