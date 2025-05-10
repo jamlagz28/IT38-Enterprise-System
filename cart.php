@@ -43,7 +43,7 @@ if (!isset($_SESSION['email'])) {
             border-radius: 10px;
             color: #fff;
             width: 100%;
-            max-width: 900px;
+            max-width: 1000px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
         }
 
@@ -54,7 +54,6 @@ if (!isset($_SESSION['email'])) {
         th, td {
             padding: 12px;
             text-align: center;
-            vertical-align: middle !important;
         }
 
         .table-striped > tbody > tr:nth-of-type(odd) {
@@ -91,6 +90,17 @@ if (!isset($_SESSION['email'])) {
             padding: 20px;
             color: #ccc;
         }
+
+        .quantity-form input[type=number] {
+            width: 60px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .quantity-form button {
+            padding: 4px 10px;
+            margin-left: 5px;
+        }
     </style>
 </head>
 <body>
@@ -103,46 +113,56 @@ if (!isset($_SESSION['email'])) {
                 <?php
                 $sum = 0; $id = '';
                 $user_id = $_SESSION['user_id'];
-                $query = "SELECT items.price AS Price, items.id AS id, items.name AS Name 
+                $query = "SELECT items.price AS Price, items.id AS id, items.name AS Name, user_item.quantity AS Quantity 
                           FROM user_item 
                           JOIN items ON user_item.item_id = items.id 
                           WHERE user_item.user_id='$user_id' AND `status`=1";
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
                 if (mysqli_num_rows($result) >= 1) {
-                    ?>
-                    <thead>
-                        <tr>
-                            <th>Item #</th>
-                            <th>Item Name</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        while ($row = mysqli_fetch_array($result)) {
-                            $sum += $row["Price"];
-                            $id .= $row["id"] . ", ";
-                            echo "<tr>
-                                    <td>#{$row['id']}</td>
-                                    <td>{$row['Name']}</td>
-                                    <td>₱ {$row['Price']}</td>
-                                    <td><a href='cart-remove.php?id={$row['id']}' class='remove_item_link'>Remove</a></td>
-                                  </tr>";
-                        }
-                        $id = rtrim($id, ", ");
-                        echo "<tr>
-                                <td></td>
-                                <td><strong>Total</strong></td>
-                                <td><strong>₱ {$sum}</strong></td>
-                                <td><a href='success.php?itemsid={$id}' class='btn btn-primary'>Confirm Order</a></td>
-                              </tr>";
-                        ?>
-                    </tbody>
+                ?>
+                <thead>
+                    <tr>
+                        <th>Item #</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Subtotal</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
                     <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                        $subtotal = $row["Price"] * $row["Quantity"];
+                        $sum += $subtotal;
+                        $id .= $row["id"] . ", ";
+                        echo "<tr>
+                                <td>#{$row['id']}</td>
+                                <td>{$row['Name']}</td>
+                                <td>₱ {$row['Price']}</td>
+                                <td>
+                                    <form class='quantity-form' method='POST' action='update-quantity.php'>
+                                        <input type='hidden' name='item_id' value='{$row['id']}'>
+                                        <input type='number' name='quantity' value='{$row['Quantity']}' min='1'>
+                                        <button type='submit' class='btn btn-sm btn-success'>Update</button>
+                                    </form>
+                                </td>
+                                <td>₱ {$subtotal}</td>
+                                <td><a href='cart-remove.php?id={$row['id']}' class='remove_item_link'>Remove</a></td>
+                              </tr>";
+                    }
+                    $id = rtrim($id, ", ");
+                    echo "<tr>
+                            <td colspan='4'><strong>Total</strong></td>
+                            <td><strong>₱ {$sum}</strong></td>
+                            <td><a href='success.php?itemsid={$id}' class='btn btn-primary'>Confirm Order</a></td>
+                          </tr>";
+                    ?>
+                </tbody>
+                <?php
                 } else {
-                    echo "<tr><td colspan='4' class='empty-msg'>Your cart is currently empty. Start shopping and add your favorite items!</td></tr>";
+                    echo "<tr><td colspan='6' class='empty-msg'>Your cart is currently empty. Start shopping and add your favorite items!</td></tr>";
                 }
                 ?>
             </table>
