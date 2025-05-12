@@ -1,7 +1,11 @@
-<!--establish the connection to database, and start the session-->
 <?php
-$con = mysqli_connect("localhost", "root", "", "bukid_crafts")or die($mysqli_error($con));
-if(session_status() == PHP_SESSION_NONE){
+$con = mysqli_connect("localhost", "root", "", "bukid_crafts");
+
+if (!$con) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 ?>

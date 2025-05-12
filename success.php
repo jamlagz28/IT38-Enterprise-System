@@ -78,6 +78,11 @@ mysqli_query($con, $query) or die($mysqli_error($con));
             max-width: 120px;
             margin-bottom: 20px;
         }
+
+        .feedback-link {
+            margin-top: 15px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +93,10 @@ mysqli_query($con, $query) or die($mysqli_error($con));
             <img src="img/thanks.jpg" alt="Thank You">
             <h4>Your order is confirmed.</h4>
             <p>Thank you for shopping with <strong>Bukid Crafts</strong>!</p>
+
+            <!-- Feedback link -->
+            <a class="feedback-link" href="send-feedback.php">Click here to send us feedback about your experience.</a>
+
             <hr style="border-color: #666;">
             <p>Click <a href="products.php">here</a> to purchase more handmade treasures.</p>
         </div>

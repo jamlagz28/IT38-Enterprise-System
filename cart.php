@@ -113,10 +113,11 @@ if (!isset($_SESSION['email'])) {
                 <?php
                 $sum = 0; $id = '';
                 $user_id = $_SESSION['user_id'];
+                // Fixing the ambiguity of 'status' by specifying 'user_item.status'
                 $query = "SELECT items.price AS Price, items.id AS id, items.name AS Name, user_item.quantity AS Quantity 
                           FROM user_item 
                           JOIN items ON user_item.item_id = items.id 
-                          WHERE user_item.user_id='$user_id' AND `status`=1";
+                          WHERE user_item.user_id='$user_id' AND user_item.status=1"; // Corrected this line
                 $result = mysqli_query($con, $query) or die(mysqli_error($con));
 
                 if (mysqli_num_rows($result) >= 1) {
