@@ -79,7 +79,13 @@
             return $result;
         }
         
-        
+            public function updateQuantity($prod_id, $qty, $cid) {
+    $stmt = $this->cnx->prepare("UPDATE chariot SET qty = :qty WHERE pid = :pid AND cid = :cid");
+    $stmt->bindParam(':qty', $qty, PDO::PARAM_INT);
+    $stmt->bindParam(':pid', $prod_id, PDO::PARAM_INT);
+    $stmt->bindParam(':cid', $cid, PDO::PARAM_INT);
+    $stmt->execute();
+    }
 
     }
 

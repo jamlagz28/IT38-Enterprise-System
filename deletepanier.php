@@ -2,22 +2,25 @@
 require "panier/classes/pnaier.class.php";
 session_start();
 
-// Ensure the user is logged in
-if (isset($_SESSION['cid']) && isset($_GET['id'])) {
-    $prod_id = (int) $_GET['id'];  // Get the product ID from the GET request
+// Ensure the user is logged in and product ID is provided
+if (!isset($_SESSION['cid'])) {
+    header('Location: client/loginc');
+    exit();
+}
 
-    // Create a Panier object and delete the product from the cart
+if (isset($_GET['id'])) {
+    $prod_id = (int) $_GET['id'];  // Sanitize product ID
+    $customer_id = $_SESSION['cid'];
+
     $panier = new Panier;
-    
-    // Call delete function with customer ID and product ID
-    $panier->delete_Panier($prod_id, $_SESSION['cid']);
-    
-    // After deletion, redirect to the cart page
+    $panier->delete_Panier($prod_id, $customer_id);
+
+    // Redirect back to the cart
     header('Location: listepanier.php');
     exit();
 } else {
-    // If the user is not logged in or no product ID is provided, handle the error
-    echo "Invalid request.";
+    // Invalid access
+    echo "Invalid product ID.";
     exit();
 }
 ?>

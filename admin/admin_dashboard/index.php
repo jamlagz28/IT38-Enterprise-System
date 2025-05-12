@@ -98,7 +98,7 @@ $data2 = $res2->fetch();
       <div class="card-body-icon">
         <i class="fas fa-fw fa-shopping-cart"></i>
       </div>
-      <div class="mr-5"><?php echo $data2['orders']?> Order</div>
+      <div class="mr-5">Order</div>
     </div>
     <a class="card-footer text-white clearfix small z-1" href="orders.php">
       <span class="float-left">View Details</span>
