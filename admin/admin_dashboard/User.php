@@ -8,7 +8,7 @@ if(isset($_SESSION['email']) == ""){
 }
 $emp = new Adminstrator;
 $res = $emp->listemploys();
-
+$res = $emp->listusers();
 $res2 = $emp->number_of_orders();
 $data2 = $res2->fetch();
 
@@ -43,7 +43,7 @@ $data2 = $res2->fetch();
 
     <a class="navbar-brand mr-1" href="index.php"><img style="width:40px;height:30px;" src="../style/img/logo.png" alt=""></a>
 
-
+  
 
     <!-- Navbar Search -->
     <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -158,41 +158,40 @@ $data2 = $res2->fetch();
     </a>
   </div>
 </div>
-
-        </div>
-      </div>
-
+  </div>
+</div>
 
 
         <!-- DataTables Example -->
+  <div id="wrapper">
+    <div id="content-wrapper">
+      <div class="container-fluid">
         <div class="card mb-3">
-          <div class="card-header">
-            <i class="fas fa-table"></i>
-            Employs</div>
+          <div class="card-header"><i class="fas fa-table"></i> Users</div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
                   <tr>
-                    <th>id</th>
-                    <th>name</th>
-                    <th>phone</th>
-                    <th>email</th>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
                     <th>Operation</th>
                   </tr>
                 </thead>
-                <tbody>
-                <?php while($data = $res->fetch())
-                {    
-                ?>
+                  <tbody>
+                <?php while ($data = $res->fetch()) { ?>
                   <tr>
-                    <td><?php echo $data['eid'];?></td>
-                    <td><?php echo $data['name'];?></td>
-                    <td><?php echo $data['phno'];?></td>
-                    <td><?php echo $data['email'];?></td>
-                    <td><a class="btn btn-danger" href="deletemploy.php?id=<?php echo $data['eid'];?>">delete</a></td>
+                    <td><?php echo $data['cid']; ?></td>
+                    <td><?php echo $data['name']; ?></td>
+                    <td><?php echo $data['phonenumber']; ?></td>
+                    <td><?php echo $data['email']; ?></td>
+                    <td>
+                      <a class="btn btn-danger" href="deleteuser.php?id=<?php echo $data['cid']; ?>">Delete</a>
+                    </td>
                   </tr>
-                <?php }?>
+                <?php } ?>
                 </tbody>
               </table>
             </div>
