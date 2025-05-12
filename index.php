@@ -126,8 +126,8 @@ $data = $result->fetch();
                                     Menu
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="breakfast.php">Breakfast</a>
-                                    <a class="dropdown-item" href="lundin.php">Lunch/Dinner</a>
+                                    <a class="dropdown-item" href="breakfast.php">Weaving</a>
+                                    <a class="dropdown-item" href="lundin.php">Wood Carving</a>
                                 </div>
                             </li>
                             <?php 
@@ -189,9 +189,9 @@ $data = $result->fetch();
             <div class="container">
                 <div class="row d-flex align-items-center">
                     <div class="col-lg-6 hero-left">
-                        <h1 class="display-4 mb-5">Enjoy our food <br>made just for you!</h1>
+                        <h1 class="display-4 mb-5"> Crafts made <br> in Bukidnon!</h1>
                         <div class="mb-2">
-                            <a class="btn btn-primary btn-shadow btn-lg" href="lundin.php" role="button">View Menu</a>
+                            <a class="btn btn-primary btn-shadow btn-lg" href="lundin.php" role="button">View Items</a>
 
                         </div>
 
@@ -199,13 +199,13 @@ $data = $result->fetch();
                             <li class="border-right">
                                 <span class="lnr lnr-store"></span>
                                 <h5>
-                                    Discover Menu
+                                    Discover Crafts
                                 </h5>
                             </li>
                             <li class="border-right">
                                 <span class="lnr lnr-cart"></span>
                                 <h5>
-                                    Order Food
+                                    Order Crafts
                                 </h5>
                             </li>
                             <li class="">
@@ -220,16 +220,16 @@ $data = $result->fetch();
                     <div class="col-lg-6 hero-right">
                         <div class="owl-carousel owl-theme hero-carousel">
                         <div class="item">
-                                <img class="img-fluid" src="img/hero-4.jpg" alt="">
+                                <img class="img-fluid" src="img/craft2.jpg" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-5.jpg" alt="">
+                                <img class="img-fluid" src="img/craft1.png" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-9.jpg" alt="">
+                                <img class="img-fluid" src="img/Weav4.png" alt="">
                             </div>
                             <div class="item">
-                                <img class="img-fluid" src="img/hero-10.jpg" alt="">
+                                <img class="img-fluid" src="img/weav9.png" alt="">
                             </div>
                         
                         </div>
@@ -242,15 +242,15 @@ $data = $result->fetch();
     <div class="container">
         <div class="section-content">
             <div id="about" style="text-align: center; padding: 50px 0;">
-                <h2 style="margin-top: 10px; font-size: 2rem;">Welcome to ThreeGuys</h2>
+                <h2 style="margin-top: 10px; font-size: 2rem;">Welcome to Bukidcraft</h2>
                 <p style="font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                ThreeGuys is dedicated to delivering the best of Filipino cuisine right to your door. 
-                Our food ordering system offers a wide array of Filipino favorites, crafted with care 
-                and authenticity. From savory dishes like adobo and pancit to comforting soups like sinigang, 
-                we bring the flavors of the Philippines directly to your home. Whether you're craving traditional 
-                meals or looking to try something new, ThreeGuys ensures that every dish is made with fresh, 
-                high-quality ingredients, prepared to capture the true essence of Filipino cooking. We are 
-                committed to providing our customers with an easy and delightful dining experience, one meal at a time.
+                Bukidcraft is dedicated to delivering the best of Filipino crafts right to your door.
+                Our craft ordering system offers a wide array of Filipino favorites, crafted with care
+                and authenticity. From intricate wood carvings to beautiful woven items,
+                we bring the artistry of the Philippines directly to your home. Whether you're craving traditional
+                crafts or looking to try something new, Bukidcraft ensures that every item is made with fresh,
+                high-quality materials, prepared to capture the true essence of Filipino craftsmanship. We are
+                committed to providing our customers with an easy and delightful shopping experience, one item at a time.
                 </p>
             </div>
         </div>
@@ -268,10 +268,10 @@ $data = $result->fetch();
         <div class="section-content">
             <div class="heading-section text-center">
                 <span class="subheading">
-                    Popular Dishes of the Month
+                    Popular Craft of the Month
                 </span>
                 <h3>
-                    Easiest way to order your favorite food 
+                    Easiest way to order hand made crafts
                 </h3>
             </div>
             <div class="row mt-5">
@@ -287,7 +287,7 @@ $data = $result->fetch();
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="img/batchoy.jpg" alt="" class="img-fluid shadow w-100">
+                    <img src="img/craft2.jpg" alt="" class="img-fluid shadow w-100">
                 </div>
             </div>
 
@@ -304,7 +304,7 @@ $data = $result->fetch();
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="img/pancit bihon.jpg" alt="" class="img-fluid shadow w-100">
+                    <img src="img/weav9.png" alt="" class="img-fluid shadow w-100">
                 </div>
             </div>      
         </div>
