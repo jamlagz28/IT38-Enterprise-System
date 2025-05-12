@@ -115,9 +115,12 @@ $res = $panier->whatinpanier();
                     </td>
                     <td class="text-center">₱ <strong><?php echo $data['price']; ?></strong></td>
                     <td class="text-center">
-                        <a href="deletepanier.php?id=<?php echo $data['pid'] ?>" class="btn btn-danger">
+
+                        <a href="deletepanier.php?id=<?php echo $data['id'] ?>" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
                         </a>
+
+
                     </td>
                 </tr>
                 <?php endwhile; else: ?>

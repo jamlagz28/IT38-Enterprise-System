@@ -42,13 +42,16 @@
 
         }
 
-        public function whatinpanier(){
-            $sql = 'SELECT p.pid ,p.name , p.price , p.file , c.qty , c.cid from produits p JOIN chariot c on c.pid = p.pid';
-            $result  = $this->cnx->prepare($sql);
-            if($result->execute()){
-                return $result;
-            }
-        }
+        public function whatinpanier() {
+    $sql = 'SELECT c.id, p.pid, p.name, p.price, p.file, c.qty, c.cid 
+            FROM produits p 
+            JOIN chariot c ON c.pid = p.pid';
+    $result  = $this->cnx->prepare($sql);
+    if($result->execute()){
+        return $result;
+    }
+}
+
 
         public function insertinto_order($qty,$status,$pid,$cid){
             $sql = 'INSERT INTO ordre (qty,status,pid,cid) VALUES (:qty, :status, :pid, :cid)';
@@ -68,16 +71,15 @@
             return $result;
         }
 
-        public function delete_panier($pid, $cid) {
-            // Add the customer ID condition to ensure we delete the correct product for the correct user
-            $sql = 'DELETE FROM chariot WHERE pid = :pid AND cid = :cid';
-            $result = $this->cnx->prepare($sql);
-            $result->bindParam(':pid', $pid);
-            $result->bindParam(':cid', $cid);
-            $result->execute();
-        
-            return $result;
-        }
+        public function delete_panier_by_id($cart_id) {
+    $sql = 'DELETE FROM chariot WHERE id = :id';
+    $result = $this->cnx->prepare($sql);
+    $result->bindParam(':id', $cart_id);
+    $result->execute();
+    return $result;
+}
+
+
         
             public function updateQuantity($prod_id, $qty, $cid) {
     $stmt = $this->cnx->prepare("UPDATE chariot SET qty = :qty WHERE pid = :pid AND cid = :cid");
