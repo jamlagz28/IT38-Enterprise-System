@@ -120,8 +120,8 @@ $data = $result->fetch();
                                     Menu
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="breakfast.php">Breakfast</a>
-                                    <a class="dropdown-item" href="lundin.php">Lunch/Dinner</a>
+                                    <a class="dropdown-item" href="breakfast.php">Weaving</a>
+                                    <a class="dropdown-item" href="lundin.php">Wood Carving</a>
                                 </div>
                             </li>
                             <?php 
