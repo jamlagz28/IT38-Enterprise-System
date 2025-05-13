@@ -3,7 +3,7 @@
     class BasesDonnees
     {
         private $dbhost = 'localhost';
-        private $dbname = 'foodzone';
+        private $dbname = 'bukidcraft';
         private $dbuser = 'root';
         private $dbpwd = '';
         

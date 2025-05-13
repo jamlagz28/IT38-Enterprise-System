@@ -3,7 +3,7 @@
 class DBConnection
 {
     private $host = 'localhost';
-    private $dbname = 'foodzone';
+    private $dbname = 'bukidcraft';
     private $user = 'root';
     private $pwd = '';
     public $conn = null;
