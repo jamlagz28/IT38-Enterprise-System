@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 06:21 AM
+-- Generation Time: May 13, 2025 at 07:01 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -178,7 +178,7 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`pid`, `name`, `description`, `price`, `file`, `type`) VALUES
-(49, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.  Size of each approximately 15 3/4\" H', 129, '1747100597_craft2.jpg', 'lunch'),
+(49, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.  Size of each approximately 15 3/4\" H', 499, '1747100597_craft2.jpg', 'lunch'),
 (50, 'Tikog Bag', 'The age-old tradition of mat weaving using tikog, a naturally grown grass used to be for personal use only.', 99, '1747100932_weav4.png', 'breakfast'),
 (52, 'Acacia Bowl', 'A beautiful set consisting of one larger and six smaller bowls in a simple, cylindrical shape. Made of light tropical wood. Handcrafted in the Philippines', 200, '1747101721_craft1.png', 'lunch'),
 (53, 'Bamboo flask', 'These Bamboo Flasks have lots of Eco-appeal and a high perceived value with their stainless steel finish. Designed to hold an individual cup of coffee or tea.', 799, '1747102827_craft4.png', 'lunch'),
@@ -189,7 +189,8 @@ INSERT INTO `produits` (`pid`, `name`, `description`, `price`, `file`, `type`) V
 (58, 'Last Supper ', 'Last Supper carved from wood its good for house decorations it gives spiritual presence in the households.', 1499, '1747107631_craft8.jpg', 'lunch'),
 (59, 'Wooden Carabao Figurine', 'A hand made Carabao figurine made from mahogany wood it is traditional carving in bukidnon for its rice production and also its tribute for the carabao\'s.', 249, '1747108064_craft3.png', 'lunch'),
 (60, 'Habol', 'Habol is a woven in a precise way it composed with abaca or pinya fabric. It\'s characterized by its vibrant colors and distinctive plaid or checkered patterns.', 299, '1747109512_weav11.png', 'breakfast'),
-(61, 'Banig', 'This banig is used for sleeping in the kubo or in the floor it gives warm and comfy feeling when you sleep on it.', 299, '1747109925_weav12.png', 'breakfast');
+(61, 'Banig', 'This banig is used for sleeping in the kubo or in the floor it gives warm and comfy feeling when you sleep on it.', 299, '1747109925_weav12.png', 'breakfast'),
+(62, 'Bamboo flute', 'Played by blowing the instrument with the nose rather than the mouth. Holding one nostril shut with thumb or finger.', 499, '1747112343_craft9.png', 'lunch');
 
 -- --------------------------------------------------------
 
@@ -294,7 +295,7 @@ ALTER TABLE `ordre`
 -- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- Constraints for dumped tables

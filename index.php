@@ -244,13 +244,7 @@ $data = $result->fetch();
             <div id="about" style="text-align: center; padding: 50px 0;">
                 <h2 style="margin-top: 10px; font-size: 2rem;">Welcome to Bukidcraft</h2>
                 <p style="font-size: 1.1rem; line-height: 1.6; max-width: 800px; margin: 0 auto;">
-                Bukidcraft is dedicated to delivering the best of Filipino crafts right to your door.
-                Our craft ordering system offers a wide array of Filipino favorites, crafted with care
-                and authenticity. From intricate wood carvings to beautiful woven items,
-                we bring the artistry of the Philippines directly to your home. Whether you're craving traditional
-                crafts or looking to try something new, Bukidcraft ensures that every item is made with fresh,
-                high-quality materials, prepared to capture the true essence of Filipino craftsmanship. We are
-                committed to providing our customers with an easy and delightful shopping experience, one item at a time.
+                We proudly bring you closer to the rich culture and craftsmanship of Bukidnon. Bukid Craft is more than just a platform—it’s a digital space where tradition meets innovation. Here, local artisans showcase their handmade creations, and you get to explore, support, and celebrate authentic heritage crafts. Whether you're a customer, artisan, or partner, we welcome you to join us in preserving culture, empowering communities, and promoting sustainable livelihoods through technology.
                 </p>
             </div>
         </div>
@@ -277,12 +271,11 @@ $data = $result->fetch();
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-6 align-self-center py-5">
                     <div class="dishes-text">
-                        <h4>Batchoy</h4>
-                        <p class="pt-3">Comforting Filipino noodle soup made with miki noodles in a rich and flavorful 
-                            broth simmered with pork, beef, or chicken. It's topped with generous servings of pork liver, 
-                            crispy chicharon, green onions, garlic, and sometimes raw egg, which is stirred into the hot soup 
-                            for added richness.</p>
-                        <h3 class="special-dishes-price">₱40.00</h3>
+                        <h4>Bulul</h4>
+                        <p class="pt-3">Bulul sculptures, particularly those of the farmer people in the Philippines, are carved wooden figures that act as granary idols. 
+                            They are believed to be guardian spirits, protecting the rice crops and ensuring a good harvest. 
+                            Bululs are also seen as representations of ancestors and can be activated through rituals. </p>
+                        <h3 class="special-dishes-price">₱499.00</h3>
                         <a href="lundin.php" class="btn-primary mt-3">Order Now</a>
                     </div>
                 </div>
@@ -294,12 +287,11 @@ $data = $result->fetch();
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-6 align-self-center py-5">
                     <div class="dishes-text">
-                        <h4>Pancit Bihon</h4>
-                        <p class="pt-3">A popular Filipino stir-fried noodle dish made with thin rice noodles sautéed with 
-                            a savory mixture of vegetables like carrots, cabbage, and bell peppers, along with meat such as 
-                            chicken, pork, or shrimp. The dish is seasoned with soy sauce and sometimes fish sauce, and is often 
-                            garnished with green onions, lemon, or calamansi.</p>
-                        <h3 class="special-dishes-price">₱25.00</h3>
+                        <h4>Rattran Basket</h4>
+                        <p class="pt-3">Rattan is both economical and ecological, protecting forestland by providing an alternative to loggers. 
+                            Rattan has been used for centuries for making furniture and baskets and is best known for its lightweight and durable qualities. 
+                            These baskets are individually hand woven using lightweight, smooth, and uncoated rattan and are designed in uniform dimensions.</p>
+                        <h3 class="special-dishes-price">₱199.00</h3>
                         <a href="breakfast.php" class="btn-primary mt-3">Order Now</a>
                     </div>
                 </div>
@@ -316,24 +308,16 @@ $data = $result->fetch();
     <div class="container">
         <div class="section-content">
             <div class="heading-section text-center">
-                <h2>Why Choose Us?</h2>
-                <p>Our restaurant offers the best food delivery service with fresh and high-quality ingredients.</p>
+                <h2>Why buy from us?</h2>
+                <p>Our platform connects you with local artisans, ensuring that you receive authentic and high-quality crafts.</p>
             </div>
             <div class="row text-center">
-                <!-- Fast Delivery -->
-                <div class="col-md-3">
-                    <div class="feature-box">
-                        <span class="lnr lnr-car" style="font-size: 3rem; color: #ff5733;"></span>
-                        <h4>Fast Delivery</h4>
-                        <p>Enjoy prompt and reliable delivery to your doorstep.</p>
-                    </div>
-                </div>
                 <!-- Fresh Ingredients -->
                 <div class="col-md-3">
                     <div class="feature-box">
                         <span class="lnr lnr-leaf" style="font-size: 3rem; color: #28a745;"></span>
-                        <h4>Fresh Ingredients</h4>
-                        <p>We use only the freshest and highest quality ingredients.</p>
+                        <h4>Natural Materials</h4>
+                        <p>We use only the freshest and highest quality materials.</p>
                     </div>
                 </div>
                 <!-- Friendly Service -->
@@ -344,12 +328,12 @@ $data = $result->fetch();
                         <p>Experience warm and welcoming customer service.</p>
                     </div>
                 </div>
-                <!-- Exceptional Taste -->
+                <!-- Exceptional Craftsmanship -->
                 <div class="col-md-3">
                     <div class="feature-box">
                         <span class="lnr lnr-heart" style="font-size: 3rem; color: #e74c3c;"></span>
-                        <h4>Exceptional Taste</h4>
-                        <p>Savor the irresistible flavors of our dishes with every bite.</p>
+                        <h4>Exceptional Craftsmanship</h4>
+                        <p>Enjoy the craftsmanship of our artisan products with every purchase.</p>
                     </div>
                 </div>
             </div>
@@ -367,10 +351,10 @@ $data = $result->fetch();
                         <div class="col-md-12">
                             <div class="heading-section text-center">
                                 <span class="subheading">
-                                    Savor the Experience
+                                    Experience the bukidcrafts
                                 </span>
                                 <h3>
-                                    Our Signature Dishes
+                                    Artisan's best crafts
                                 </h3>
                             </div>
                         </div>
@@ -399,9 +383,9 @@ $data = $result->fetch();
                         ?>
                     </div>
                     <div class="d-flex justify-content-around">
-                        <a href="breakfast.php" class="btn-primary mt-3">Breakfast</a>
-                        <a href="lundin.php" class="btn-primary mt-3">Lunch/Dinner</a>
-                    </div> 
+                        <a href="breakfast.php" class="btn-primary mt-3">Weaving</a>
+                        <a href="lundin.php" class="btn-primary mt-3">Wood Carving</a>
+                    </div>
 
                 </div>
             </div>            
