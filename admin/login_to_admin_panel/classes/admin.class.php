@@ -12,37 +12,32 @@ class Admin
         $this->pdo = $dbconn->connectDB();
     }
 
-    /*public function register($username, $email, $password)
-    {
-        try {
-            $sql = "INSERT INTO register(username,email,password,created_at)
-                    VALUES (:username,:email,:password, NOW())";
-            $query = $this->pdo->prepare($sql);
-            $query->bindparam(":username", $username);
-            $query->bindparam(":email", $email);
-            $query->bindparam(":password", $password);
-            $query->execute();
-            return $query;
-        } catch (PDOException $ex) {
-            echo $ex->getMessage();
-        }
-    }*/
 
     public function login($email, $password)
-    {
-        try {
-            $sql = "SELECT * FROM employé WHERE email= :email";
-            $query = $this->pdo->prepare($sql);
-            $query->bindparam(":email", $email);
-            $query->execute();
-            $user = $query->fetch();
+{
+    try {
+        $sql = "SELECT * FROM employé WHERE email= :email";
+        $query = $this->pdo->prepare($sql);
+        $query->bindparam(":email", $email);
+        $query->execute();
+        $user = $query->fetch();
+
+        if ($user) {
+            var_dump($password, $user['password']); // Add this line
             if (password_verify($password, $user['password'])) {
+                echo "✅ Password match!";
                 return $user;
-            } else{
+            } else {
+                echo "❌ Password does not match.";
                 return false;
             }
-        } catch (PDOException $ex) {
-            echo $ex->getMessage();
+        } else {
+            echo "❌ Email not found.";
+            return false;
         }
+    } catch (PDOException $ex) {
+        echo $ex->getMessage();
     }
+}
+
 }

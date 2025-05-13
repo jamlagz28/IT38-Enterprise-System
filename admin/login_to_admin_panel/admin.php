@@ -1,6 +1,8 @@
 <?php
 
 $pass = 'foodzoneadmin';
+$pass = 'bukidcraft';
+echo password_hash("bukidcraft", PASSWORD_DEFAULT);
 // $2y$10$bhZgfD5jh22aUimjxwvkZue8BsM2SVgCAvJmJFARKfp16XVcA2UnK
 
 //session_start();

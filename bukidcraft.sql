@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 08:55 AM
+-- Generation Time: May 13, 2025 at 10:27 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -100,7 +100,8 @@ CREATE TABLE `employé` (
 INSERT INTO `employé` (`eid`, `name`, `phno`, `email`, `password`, `type`) VALUES
 (1, 'admin', 26248366, 'admin@food.com', '$2y$10$bhZgfD5jh22aUimjxwvkZue8BsM2SVgCAvJmJFARKfp16XVcA2UnK', 'admin'),
 (22, 'aaekk', 123454321, 'aaekk@gmail.com', '$2y$10$7gZL3OnHoI0bibD4UjFpFeo/6JvMHmAmc.EzbXME5nM8YWPBE5qXe', 'employe'),
-(23, 'chuy', 2147483647, 'chuy@main.com', '$2y$10$RUG297wy54VVNEXbEGDn4uOa/uO820/h3O1hTAW1IfvsUD5RnlTtW', 'employe');
+(23, 'chuy', 2147483647, 'chuy@main.com', '$2y$10$RUG297wy54VVNEXbEGDn4uOa/uO820/h3O1hTAW1IfvsUD5RnlTtW', 'employe'),
+(26, 'Admin', 0, 'admin@craft.com', '$2y$10$h/Z7gd5HHCP1oXkcJFlFke0Bsfpfy1rfEbGISS6RoSdMkT3oUt.uy', 'admin');
 
 -- --------------------------------------------------------
 
@@ -284,7 +285,7 @@ ALTER TABLE `clients`
 -- AUTO_INCREMENT for table `employé`
 --
 ALTER TABLE `employé`
-  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `eid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `ordre`
