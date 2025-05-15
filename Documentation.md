@@ -1,2 +1,0 @@
-at first james created register.php for the registration of user and login.php for login 
-next is arjie created costumerpage.php but it needs to be polished and also arjie created userpage.css for its design
