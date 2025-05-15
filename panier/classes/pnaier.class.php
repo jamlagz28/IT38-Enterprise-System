@@ -1,0 +1,94 @@
+<?php
+
+    include 'dbconnect.class.php';
+
+    class Panier
+    {
+        private $cnx;
+
+        public function __construct()
+        {
+            $db = new BasesDonnees;
+            $this->cnx = $db->connectDB();
+        }
+
+        public function getInfo($pid){
+            $req = 'SELECT * FROM produits WHERE pid=:pid';
+            $result  = $this->cnx->prepare($req);
+            $result->bindParam(':pid',$pid);
+            if($result->execute()){
+                return $result;
+            }
+        }
+
+        public function getBadge(){
+            $req='SELECT count(*) as total FROM chariot';
+            $result  = $this->cnx->prepare($req);
+            if($result->execute()){
+                return $result;
+            }
+        }
+
+        public function intoPanier($qty,$pid,$cid){
+            $req = 'INSERT INTO chariot (qty, cid, pid) VALUES(:qty, :cid, :pid)';
+            $result = $this->cnx->prepare($req);
+            $result->bindParam(':qty',$qty);
+            $result->bindParam(':cid',$cid);
+            $result->bindParam(':pid',$pid);
+            if($result->execute()){
+                return $result;
+            }
+
+
+        }
+
+        public function whatinpanier() {
+    $sql = 'SELECT c.id, p.pid, p.name, p.price, p.file, c.qty, c.cid 
+            FROM produits p 
+            JOIN chariot c ON c.pid = p.pid';
+    $result  = $this->cnx->prepare($sql);
+    if($result->execute()){
+        return $result;
+    }
+}
+
+
+        public function insertinto_order($qty,$status,$pid,$cid){
+            $sql = 'INSERT INTO ordre (qty,status,pid,cid) VALUES (:qty, :status, :pid, :cid)';
+            $result = $this->cnx->prepare($sql);
+            $result->bindParam(':qty',$qty);
+            $result->bindParam(':status',$status);
+            $result->bindParam(':pid',$pid);
+            $result->bindParam(':cid',$cid);
+            $result->execute();
+            return $result;
+        }
+
+        public function resetpanier(){
+            $sql = 'DELETE FROM chariot';
+            $result = $this->cnx->prepare($sql);
+            $result->execute();
+            return $result;
+        }
+
+        public function delete_panier_by_id($cart_id) {
+    $sql = 'DELETE FROM chariot WHERE id = :id';
+    $result = $this->cnx->prepare($sql);
+    $result->bindParam(':id', $cart_id);
+    $result->execute();
+    return $result;
+}
+
+
+        
+            public function updateQuantity($prod_id, $qty, $cid) {
+    $stmt = $this->cnx->prepare("UPDATE chariot SET qty = :qty WHERE pid = :pid AND cid = :cid");
+    $stmt->bindParam(':qty', $qty, PDO::PARAM_INT);
+    $stmt->bindParam(':pid', $prod_id, PDO::PARAM_INT);
+    $stmt->bindParam(':cid', $cid, PDO::PARAM_INT);
+    $stmt->execute();
+    }
+
+    }
+
+    
