@@ -57,7 +57,6 @@ if (isset($_SESSION['name']) == ""){
 
             <div>
             <button  type="submit" class="btn btn-primary btn-shadow btn-lg" name="update" >Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
-            <button  type="submit" class="btn btn-primary btn-shadow btn-lg" name="delete" >Delete Account</button>
             </div>
             </form>
       </div>

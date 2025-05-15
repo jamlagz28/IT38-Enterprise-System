@@ -128,7 +128,7 @@ $data = $result->fetch();
                                     Menu
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="breakfast.php">Weaving</a>
+                                    <a class="dropdown-item" href="weaving.php">Weaving</a>
                                     <a class="dropdown-item" href="lundin.php">Wood Carving</a>
                                 </div>
                             </li>
@@ -145,7 +145,7 @@ $data = $result->fetch();
                             </li>
 
                             <li class="nav-item dropdown">
-                                <a class="nav-link" href="client/logout.php?logout">Logout</a>
+                                <a class="nav-link" href="#" onclick="confirmLogout(event)">Logout</a>
                             </li>
                             <li class="nav-item ml-5">
                             <style>
@@ -176,7 +176,7 @@ $data = $result->fetch();
                                     color:white !important;
                                 }
                             </style>
-                                <a href="listepanier.php" class="btn btn-outline-danger">
+                                <a href="client/loginc.php" class="btn btn-outline-danger" title="Please login to view your cart">
                                     <i class="fa fa-shopping-cart" style="opacity:1"></i>
                                     &nbsp;&nbsp;<span class="badge badge-sm-light" id="success"></span>
                                 </a>
@@ -239,6 +239,18 @@ $data = $result->fetch();
 
     <!-- Main JS -->
     <script src="js/app.min.js "></script>
+
+
+    <script>
+    function confirmLogout(event) {
+        event.preventDefault(); // Stop the default link behavior
+        if (confirm("Are you sure you want to logout?")) {
+            window.location.href = "client/logout.php?logout";
+        }
+    }</script>
+
+
+
     <script>
 
 /*
