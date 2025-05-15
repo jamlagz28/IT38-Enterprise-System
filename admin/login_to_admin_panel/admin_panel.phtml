@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Admin Panel</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../style/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../style/css/sb-admin.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .card-register {
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      border-radius: 1rem;
+    }
+
+    .card-header {
+      background-color: #343a40;
+      color: white;
+      font-weight: bold;
+      font-size: 1.25rem;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+    }
+
+    .admin-title {
+      color: white;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    }
+
+    .form-label-group label {
+      font-weight: 600;
+    }
+
+    .btn-danger {
+      background-color: #d9534f;
+      border-color: #d43f3a;
+    }
+
+    .btn-danger:hover {
+      background-color: #c9302c;
+      border-color: #ac2925;
+    }
+
+    .text-danger {
+      font-size: 0.85rem;
+    }
+
+    .alert {
+      margin-top: 15px;
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-dark">
+
+  <?php if (isset($auth_error)): ?>
+    <div class="alert alert-danger alert-dismissible fade show">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <?= $auth_error ?>
+    </div>
+  <?php endif ?>
+
+  <div class="container" style="padding: 7%;">
+    <div class="admin-title">ADMIN DASHBOARD</div>
+    <div class="card card-register mx-auto mt-3">
+      <div class="card-header text-center">Log in</div>
+      <div class="card-body">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="email" id="inputEmail" name="email" value="<?= $_POST['email'] ?? '' ?>" class="form-control" placeholder="Email address" required>
+              <label for="inputEmail">Email address</label>
+              <span class="text-danger"><?php if (isset($email_error)) echo $email_error; ?></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="password" id="inputpass" name="password" class="form-control" placeholder="Your password" required>
+              <label for="inputpass">Password</label>
+              <span class="text-danger"><?php if (isset($password_error)) echo $password_error; ?></span>
+            </div>
+          </div>
+
+          <button class="btn btn-danger btn-block" type="submit" name="admin">Dashboard</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="../style/vendor/jquery/jquery.min.js"></script>
+  <script src="../style/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="../style/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</body>
+
+</html>
