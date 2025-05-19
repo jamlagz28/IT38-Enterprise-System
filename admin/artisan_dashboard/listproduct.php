@@ -80,6 +80,11 @@ $data2 = $res2->fetch();
       </li>
     </ul>
 
+<div class="mx-auto text-center w-100" style="position: absolute; left: 0; right: 0; text-align: center; pointer-events: none;">
+    <span class="h1 font-weight-bold text-dark">ARTISAN DASHBOARD</span>
+  </div>
+
+
  </nav>
   <!-- Breadcrumbs-->
   <ol class="breadcrumb mt-2">
