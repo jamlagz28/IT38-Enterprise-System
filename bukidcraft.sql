@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2025 at 06:07 AM
+-- Generation Time: May 19, 2025 at 11:20 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -186,7 +186,11 @@ INSERT INTO `ordre` (`oid`, `qty`, `status`, `pid`, `cid`, `order_date`) VALUES
 (157, 4, 1, 64, 5, '2025-05-23 19:15:10'),
 (158, 2, 1, 65, 7, '2025-05-25 11:30:35'),
 (159, 3, 1, 52, 5, '2025-05-27 14:45:00'),
-(160, 2, 1, 53, 7, '2025-05-30 17:00:25');
+(160, 2, 1, 53, 7, '2025-05-30 17:00:25'),
+(161, 5, 0, 56, 7, '2025-05-19 14:53:46'),
+(162, 1, 0, 64, 7, '2025-05-19 15:44:52'),
+(163, 6, 0, 64, 7, '2025-05-19 15:45:32'),
+(164, 8, 0, 64, 7, '2025-05-19 17:18:12');
 
 -- --------------------------------------------------------
 
@@ -208,19 +212,19 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`pid`, `name`, `description`, `price`, `file`, `type`) VALUES
-(52, 'Acacia Bowl', 'A beautiful set consisting of one larger and six smaller bowls in a simple, cylindrical shape. Made of light tropical wood. Handcrafted in the Philippines', 200, '1747101721_craft1.png', 'lunch'),
-(53, 'Bamboo flask', 'These Bamboo Flasks have lots of Eco-appeal and a high perceived value with their stainless steel finish. Designed to hold an individual cup of coffee or tea.', 799, '1747102827_craft4.png', 'lunch'),
-(54, 'Carved Fishing boy ', 'Hand-carved wooden figure from Paete, Philippines, depicting a boy spearing fish. He holds a traditional fishing spear, with one fish caught and another at his feet, set on a sculpted base.', 899, '1747103054_craft5.png', 'lunch'),
-(55, 'Abaca purse', 'Handwoven indigenous covers can be made from abaca fabrics such as T\'nalak or Hinabol (Bukidnon), cotton-based fabrics such as Ramit from Binakol  weaves.', 399, '1747103623_Weav1.png', 'breakfast'),
-(56, 'Willow Basket', 'Willow baskets feature supple, breathable and very light weight. Rich with a beautiful candy color due to natural discoloration when drying', 399, '1747104460_weav3.png', 'breakfast'),
-(57, 'Rattan Basket', 'Woven Rattan Basket. This basket would be used to carry fruits and vegetables from local markets. This basket would be a lovely addition to your collection or to display in your home.\r\n', 199, '1747106393_weav9.png', 'breakfast'),
-(58, 'Last Supper ', 'Last Supper carved from wood its good for house decorations it gives spiritual presence in the households.', 1499, '1747107631_craft8.jpg', 'lunch'),
-(59, 'Wooden Carabao Figurine', 'A hand made Carabao figurine made from mahogany wood it is traditional carving in bukidnon for its rice production and also its tribute for the carabao\'s.', 249, '1747108064_craft3.png', 'lunch'),
-(60, 'Habol', 'Habol is a woven in a precise way it composed with abaca or pinya fabric. It\'s characterized by its vibrant colors and distinctive plaid or checkered patterns.', 299, '1747109512_weav11.png', 'breakfast'),
-(61, 'Banig', 'This banig is used for sleeping in the kubo or in the floor it gives warm and comfy feeling when you sleep on it.', 299, '1747109925_weav12.png', 'breakfast'),
-(62, 'Bamboo flute', 'Played by blowing the instrument with the nose rather than the mouth. Holding one nostril shut with thumb or finger.', 499, '1747112343_craft9.png', 'lunch'),
-(64, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.', 499, '1747119255_craft2.jpg', 'lunch'),
-(65, 'Tikog Bag', 'The age-old tradition of mat weaving using tikog, a naturally grown grass used to be for personal use only.', 199, '1747553978_weav4.png', 'breakfast');
+(52, 'Acacia Bowl', 'A beautiful set consisting of one larger and six smaller bowls in a simple, cylindrical shape. Made of light tropical wood. Handcrafted in the Philippines sybau', 200, '1747101721_craft1.png', 'wood_carving'),
+(53, 'Bamboo flask', 'These Bamboo Flasks have lots of Eco-appeal and a high perceived value with their stainless steel finish. Designed to hold an individual cup of coffee or tea.', 789, '1747102827_craft4.png', 'wood_carving'),
+(54, 'Carved Fishing boy ', 'Hand-carved wooden figure from Paete, Philippines, depicting a boy spearing fish. He holds a traditional fishing spear, with one fish caught and another at his feet, set on a sculpted base.', 898, '1747103054_craft5.png', 'wood_carving'),
+(55, 'Abaca purse', 'Handwoven indigenous covers can be made from abaca fabrics such as T\'nalak or Hinabol (Bukidnon), cotton-based fabrics such as Ramit from Binakol  weaves.', 399, '1747103623_Weav1.png', 'weaving'),
+(56, 'Willow Basket', 'Willow baskets feature supple, breathable and very light weight. Rich with a beautiful candy color due to natural discoloration when drying', 399, '1747104460_weav3.png', 'weaving'),
+(57, 'Rattan Basket', 'Woven Rattan Basket. This basket would be used to carry fruits and vegetables from local markets. This basket would be a lovely addition to your collection or to display in your home.\r\n', 199, '1747106393_weav9.png', 'weaving'),
+(58, 'Last Supper ', 'Last Supper carved from wood its good for house decorations it gives spiritual presence in the households.', 1499, '1747107631_craft8.jpg', 'wood_carving'),
+(59, 'Wooden Carabao Figurine', 'A hand made Carabao figurine made from mahogany wood it is traditional carving in bukidnon for its rice production and also its tribute for the carabao\'s.', 249, '1747108064_craft3.png', 'wood_carving'),
+(60, 'Habol', 'Habol is a woven in a precise way it composed with abaca or pinya fabric. It\'s characterized by its vibrant colors and distinctive plaid or checkered patterns.', 299, '1747109512_weav11.png', 'weaving'),
+(61, 'Banig', 'This banig is used for sleeping in the kubo or in the floor it gives warm and comfy feeling when you sleep on it.', 299, '1747109925_weav12.png', 'weaving'),
+(62, 'Bamboo flute', 'Played by blowing the instrument with the nose rather than the mouth. Holding one nostril shut with thumb or finger.', 499, '1747112343_craft9.png', 'wood_carving'),
+(64, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.', 499, '1747119255_craft2.jpg', 'wood_carving'),
+(65, 'Tikog Bag', 'The age-old tradition of mat weaving using tikog, a naturally grown grass used to be for personal use only.', 199, '1747553978_weav4.png', 'weaving');
 
 -- --------------------------------------------------------
 
@@ -301,7 +305,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `chariot`
 --
 ALTER TABLE `chariot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=262;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -319,13 +323,13 @@ ALTER TABLE `employé`
 -- AUTO_INCREMENT for table `ordre`
 --
 ALTER TABLE `ordre`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
 -- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- Constraints for dumped tables

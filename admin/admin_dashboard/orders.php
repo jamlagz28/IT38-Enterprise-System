@@ -2,15 +2,16 @@
 <html lang="en">
 <?php
 require 'dash_classes/admin.class.php';
+
 session_start();
 if(isset($_SESSION['email']) == ""){
   header('location:../login_to_admin_panel/admin.php');
 }
 $emp = new Adminstrator;
 $res = $emp->list_orders();
-
 $res2 = $emp->number_of_orders();
 $data2 = $res2->fetch();
+
 
 ?>
 <head>
@@ -188,7 +189,7 @@ $data2 = $res2->fetch();
                   <tr>
                     <th>id</th>
                     <th>qty</th>
-                    <th>status</th>
+                    <th>Type</th>
                     <th>prod id</th>
                     <th>person id</th>
                   </tr>
@@ -201,18 +202,8 @@ $data2 = $res2->fetch();
                     <td><?php echo $data['oid'];?></td>
                     <td><?php echo $data['qty'];?></td>
                     
-
-                    <td>
-                      <?php 
-                        if ($data['status'] == 0) {
-                          echo "Weaving";
-                         } elseif ($data['status'] == 1) {
-                          echo "Wood Carving";
-                         } else {
-                          echo "Unknown";
-                       }?>
-                       </td>
-
+                    <td><?php echo $data['type'];?></td>
+                    
                     <td><?php echo $data['pid'];?></td>
                     <td><?php echo $data['cid'];?></td>
                   </tr>

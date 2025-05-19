@@ -272,7 +272,7 @@ h1, h2, h3, h4, h5, h6 {
 
         <!-- End of Welcome Section -->
         <!-- Special Dishes Section -->
-        <section id="gtco-special-dishes" class="bg-grey section-padding">
+ <section id="gtco-special-dishes" class="bg-grey section-padding">
     <div class="container">
         <div class="section-content">
             <div class="heading-section text-center">
@@ -283,37 +283,57 @@ h1, h2, h3, h4, h5, h6 {
                     Easiest way to order hand made crafts
                 </h3>
             </div>
+            
+            <?php
+            // Fetch a specific featured product (for example, product with ID 1)
+            $featured_id = 64; // Change this to the ID you want to feature
+            $featured_query = "SELECT * FROM produits WHERE pid = :pid LIMIT 1";
+            $featured_stmt = $pr->prepare($featured_query);
+            $featured_stmt->bindParam(':pid', $featured_id);
+            $featured_stmt->execute();
+            $featured_product = $featured_stmt->fetch();
+            
+            if ($featured_product) {
+            ?>
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-6 align-self-center py-5">
                     <div class="dishes-text">
-                        <h4>Bulul</h4>
-                        <p class="pt-3">Bulul sculptures, particularly those of the farmer people in the Philippines, are carved wooden figures that act as granary idols. 
-                            They are believed to be guardian spirits, protecting the rice crops and ensuring a good harvest. 
-                            Bululs are also seen as representations of ancestors and can be activated through rituals. </p>
-                        <h3 class="special-dishes-price">₱499.00</h3>
-                        <a href="lundin.php" class="btn-primary mt-3">Order Now</a>
+                        <h4><?php echo htmlspecialchars($featured_product['name']); ?></h4>
+                        <p class="pt-3"><?php echo htmlspecialchars($featured_product['description']); ?></p>
+                        <h3 class="special-dishes-price">₱<?php echo number_format($featured_product['price'], 2); ?></h3>
+                        <a href="prod_detail.php?id=<?php echo $featured_product['pid']; ?>" class="btn-primary mt-3">Order Now</a>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="img/craft2.jpg" alt="" class="img-fluid shadow w-100">
+                    <img src="admin/uploads/<?php echo htmlspecialchars($featured_product['file']); ?>" alt="<?php echo htmlspecialchars($featured_product['name']); ?>" class="img-fluid shadow w-100">
                 </div>
             </div>
-
+            <?php } ?>
+            
+            <!-- Second featured product if needed -->
+            <?php
+            $second_featured_id = 60; // Change this to another product ID
+            $second_featured_stmt = $pr->prepare("SELECT * FROM produits WHERE pid = :pid LIMIT 1");
+            $second_featured_stmt->bindParam(':pid', $second_featured_id);
+            $second_featured_stmt->execute();
+            $second_featured = $second_featured_stmt->fetch();
+            
+            if ($second_featured) {
+            ?>
             <div class="row mt-5">
                 <div class="col-lg-5 col-md-6 align-self-center py-5">
                     <div class="dishes-text">
-                        <h4>Rattran Basket</h4>
-                        <p class="pt-3">Rattan is both economical and ecological, protecting forestland by providing an alternative to loggers. 
-                            Rattan has been used for centuries for making furniture and baskets and is best known for its lightweight and durable qualities. 
-                            These baskets are individually hand woven using lightweight, smooth, and uncoated rattan and are designed in uniform dimensions.</p>
-                        <h3 class="special-dishes-price">₱199.00</h3>
-                        <a href="breakfast.php" class="btn-primary mt-3">Order Now</a>
+                        <h4><?php echo htmlspecialchars($second_featured['name']); ?></h4>
+                        <p class="pt-3"><?php echo htmlspecialchars($second_featured['description']); ?></p>
+                        <h3 class="special-dishes-price">₱<?php echo number_format($second_featured['price'], 2); ?></h3>
+                        <a href="prod_detail.php?id=<?php echo $second_featured['pid']; ?>" class="btn-primary mt-3">Order Now</a>
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-2 col-md-6 align-self-center mt-4 mt-md-0">
-                    <img src="img/weav9.png" alt="" class="img-fluid shadow w-100">
+                    <img src="admin/uploads/<?php echo htmlspecialchars($second_featured['file']); ?>" alt="<?php echo htmlspecialchars($second_featured['name']); ?>" class="img-fluid shadow w-100">
                 </div>
-            </div>      
+            </div>
+            <?php } ?>
         </div>
     </div>
 </section>

@@ -56,11 +56,16 @@ class Adminstrator
 	}
 
 	public function list_orders(){
-		$req = 'SELECT * FROM ordre ';
-		$result = $this->pdo->prepare($req);
-		$result->execute();
-		return $result;
-	}
+    $req = '
+    SELECT o.oid, o.qty, p.type, o.pid, o.cid 
+    FROM ordre o 
+    JOIN produits p ON o.pid = p.pid
+';
+    $result = $this->pdo->prepare($req);
+    $result->execute();
+    return $result;
+}
+  
 
 	public function number_of_orders(){
 		$req = 'SELECT count(*)  as orders FROM ordre ';
@@ -128,7 +133,18 @@ public function get_monthly_sales() {
 }
 
 
-
+public function get_order_by_id($oid) {
+    try {
+        $sql = 'SELECT * FROM ordre WHERE oid = :oid';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindParam(':oid', $oid, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Returns the order as an associative array
+    } catch (PDOException $ex) {
+        error_log("PDO Error: " . $ex->getMessage());
+        return false;
+    }
+}
 
     public function send_email($name,$email,$password){
 

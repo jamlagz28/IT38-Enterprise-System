@@ -85,4 +85,13 @@
                 }
             }
 
+                public function list_types(){
+        $req = 'SELECT * FROM produits ';
+        $result = $this->pdo->prepare($req);
+        $result->execute();
+        return $result;
+    }
+    
+    
+
         }
