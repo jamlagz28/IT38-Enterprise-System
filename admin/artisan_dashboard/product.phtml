@@ -1,11 +1,11 @@
 <html>
     <head>
-    <title>Bukid Crafts - Product</title>
+    <title>Bukid Craft</title>
     <link rel="stylesheet" href="../../bootstrap4/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/loginc.css" class="css">
     <link rel="stylesheet" href="../../css/style.css" class="css">
 
-       <style>
+      <style>
         body {
             background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
             background-repeat: no-repeat;
@@ -14,8 +14,7 @@
             background-attachment: fixed;
         }
     </style>
-
-
+    
     </head>
     <body>
    
@@ -24,7 +23,7 @@
       <div class="shadow-lg bg-white rounded testmarg">
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
       <div class="text-center">
-          <h2>Add Product</h2><br>
+      <h2>Add Product</h2><br>
           </div>
             <div class="form-group">
             <label for="name"> Name </label>
@@ -46,8 +45,8 @@
                 <label class="form-label-group" for="type"> Type </label>
                 <select name="type" class="form-control" required>
                     <option value="none" default> Choose Type </option>
-                    <option value="breakfast"> Breakfast </option>
-                    <option value="lunch"> Lunch/Diner </option>
+                    <option value="breakfast"> Weaving </option>
+                    <option value="lunch"> Wood Carving </option>
                 </select>
                 <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
             </div>
@@ -57,9 +56,10 @@
             </div>
             <span class="text-danger"><?php if (isset($file_error)) echo $file_error; ?></span>
 
-        <div>
-            <button  type="submit" name="submit" class="btn btn-primary btn-shadow btn-lg mt-3" >submit</button>&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
+       <div class="d-flex justify-content-between mt-3">
+    <button type="submit" name="submit" class="btn btn-primary btn-shadow btn-lg">Submit</button>
+    <a href="index.php" class="btn btn-secondary btn-shadow btn-lg">Back</a>
+</div>
             </form>
       </div>
       </div>

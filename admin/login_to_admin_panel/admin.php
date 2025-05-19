@@ -45,7 +45,7 @@ echo password_hash("bukidcraft", PASSWORD_DEFAULT);
             if($rep['type'] =="admin"){
                 header("Location: ../admin_dashboard/index.php");
             }else{
-                header("Location: ../empl_dashboard/index.php");
+                header("Location: ../artisan_dashboard/index.php");
             }
         }
     }
