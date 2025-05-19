@@ -21,7 +21,7 @@ $data2 = $res2->fetch();
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Three Guys - Dashboard</title>
+  <title>Bukid Crafts - Dashboard</title>
 
   <!-- Custom fonts for this template-->
   <link href="../style/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -77,6 +77,10 @@ $data2 = $res2->fetch();
         </div>
       </li>
     </ul>
+
+ <div class="mx-auto text-center w-100" style="position: absolute; left: 0; right: 0; text-align: center; pointer-events: none;">
+    <span class="h1 font-weight-bold text-dark">ARTISAN DASHBOARD</span>
+  </div>
 
  </nav>
   <!-- Breadcrumbs-->
