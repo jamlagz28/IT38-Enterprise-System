@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 13, 2025 at 10:27 AM
+-- Generation Time: May 19, 2025 at 06:07 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -114,50 +114,79 @@ CREATE TABLE `ordre` (
   `qty` int(25) NOT NULL,
   `status` int(11) NOT NULL,
   `pid` int(11) NOT NULL,
-  `cid` int(11) NOT NULL
+  `cid` int(11) NOT NULL,
+  `order_date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
 -- Dumping data for table `ordre`
 --
 
-INSERT INTO `ordre` (`oid`, `qty`, `status`, `pid`, `cid`) VALUES
-(97, 1, 1, 27, 5),
-(98, 1, 1, 28, 5),
-(99, 1, 1, 31, 5),
-(100, 1, 1, 33, 5),
-(101, 1, 1, 31, 5),
-(102, 1, 1, 33, 5),
-(103, 1, 1, 31, 5),
-(104, 1, 1, 33, 5),
-(105, 1, 1, 31, 5),
-(106, 1, 1, 33, 5),
-(107, 1, 1, 29, 5),
-(108, 1, 1, 31, 5),
-(109, 1, 1, 33, 5),
-(110, 1, 1, 29, 5),
-(111, 1, 1, 31, 5),
-(112, 1, 1, 31, 5),
-(113, 1, 1, 31, 5),
-(114, 1, 1, 31, 5),
-(115, 1, 1, 31, 5),
-(116, 1, 1, 31, 5),
-(117, 1, 1, 33, 5),
-(118, 1, 1, 33, 5),
-(119, 1, 0, 31, 7),
-(120, 1, 0, 29, 7),
-(121, 1, 0, 33, 7),
-(122, 1, 0, 42, 7),
-(123, 1, 0, 42, 7),
-(124, 1, 0, 42, 7),
-(125, 1, 0, 40, 7),
-(126, 1, 0, 42, 7),
-(127, 1, 0, 42, 7),
-(128, 1, 0, 42, 7),
-(129, 2, 0, 29, 7),
-(130, 1, 0, 31, 7),
-(131, 1, 0, 33, 7),
-(132, 5, 0, 31, 7);
+INSERT INTO `ordre` (`oid`, `qty`, `status`, `pid`, `cid`, `order_date`) VALUES
+(97, 1, 1, 27, 5, '2025-01-19 10:18:45'),
+(98, 1, 1, 28, 5, '2025-02-19 10:18:45'),
+(99, 1, 1, 31, 5, '2025-03-19 10:18:45'),
+(100, 1, 1, 33, 5, '2025-04-19 10:18:45'),
+(101, 1, 1, 31, 5, '2025-05-19 10:18:45'),
+(102, 1, 1, 33, 5, '2025-06-19 10:18:45'),
+(103, 1, 1, 31, 5, '2025-07-19 10:18:45'),
+(104, 1, 1, 33, 5, '2025-08-19 10:18:45'),
+(105, 1, 1, 31, 5, '2025-09-19 10:18:45'),
+(106, 1, 1, 33, 5, '2025-10-19 10:18:45'),
+(107, 1, 1, 29, 5, '2025-11-19 10:18:45'),
+(108, 1, 1, 31, 5, '2025-12-19 10:18:45'),
+(109, 1, 1, 33, 5, '2025-01-10 10:18:45'),
+(110, 1, 1, 29, 5, '2025-02-11 10:18:45'),
+(111, 1, 1, 31, 5, '2025-03-12 10:18:45'),
+(112, 1, 1, 31, 5, '2025-04-13 10:18:45'),
+(113, 1, 1, 31, 5, '2025-05-14 10:18:45'),
+(114, 1, 1, 31, 5, '2025-06-15 10:18:45'),
+(115, 1, 1, 31, 5, '2025-07-16 10:18:45'),
+(116, 1, 1, 31, 5, '2025-08-17 10:18:45'),
+(117, 1, 1, 33, 5, '2025-09-18 10:18:45'),
+(118, 1, 1, 33, 5, '2025-10-19 10:18:45'),
+(119, 1, 0, 31, 7, '2025-11-20 10:18:45'),
+(120, 1, 0, 29, 7, '2025-12-21 10:18:45'),
+(121, 1, 0, 33, 7, '2025-01-22 10:18:45'),
+(122, 1, 0, 42, 7, '2025-02-23 10:18:45'),
+(123, 1, 0, 42, 7, '2025-03-24 10:18:45'),
+(124, 1, 0, 42, 7, '2025-04-25 10:18:45'),
+(125, 1, 0, 40, 7, '2025-05-26 10:18:45'),
+(126, 1, 0, 42, 7, '2025-06-27 10:18:45'),
+(127, 1, 0, 42, 7, '2025-07-28 10:18:45'),
+(128, 1, 0, 42, 7, '2025-08-29 10:18:45'),
+(129, 2, 0, 29, 7, '2025-09-30 10:18:45'),
+(130, 1, 0, 31, 7, '2025-10-01 10:18:45'),
+(131, 1, 0, 33, 7, '2025-11-02 10:18:45'),
+(132, 5, 0, 31, 7, '2025-12-03 10:18:45'),
+(133, 10, 0, 64, 7, '2025-01-04 10:18:45'),
+(134, 8, 0, 56, 7, '2025-02-05 10:18:45'),
+(135, 8, 0, 53, 7, '2025-03-06 10:30:13'),
+(136, 2, 1, 52, 5, '2025-04-05 09:15:22'),
+(137, 1, 1, 53, 5, '2025-04-07 11:30:45'),
+(138, 3, 1, 54, 7, '2025-04-10 14:22:18'),
+(139, 1, 1, 55, 5, '2025-04-12 16:45:33'),
+(140, 2, 1, 56, 7, '2025-04-15 10:10:10'),
+(141, 1, 1, 57, 5, '2025-04-18 13:25:47'),
+(142, 1, 1, 58, 7, '2025-04-20 15:30:00'),
+(143, 2, 1, 59, 5, '2025-04-22 17:45:29'),
+(144, 3, 1, 60, 7, '2025-04-25 12:12:12'),
+(145, 1, 1, 61, 5, '2025-04-28 09:45:38'),
+(146, 5, 1, 52, 7, '2025-05-01 10:00:00'),
+(147, 3, 1, 53, 5, '2025-05-03 11:15:25'),
+(148, 2, 1, 54, 7, '2025-05-05 14:30:50'),
+(149, 4, 1, 55, 5, '2025-05-07 16:45:15'),
+(150, 2, 1, 56, 7, '2025-05-09 09:20:35'),
+(151, 6, 1, 57, 5, '2025-05-11 12:35:40'),
+(152, 1, 1, 58, 7, '2025-05-13 15:50:05'),
+(153, 3, 1, 59, 5, '2025-05-15 18:05:30'),
+(154, 2, 1, 60, 7, '2025-05-17 10:30:55'),
+(155, 5, 1, 61, 5, '2025-05-19 13:45:20'),
+(156, 1, 1, 62, 7, '2025-05-21 16:00:45'),
+(157, 4, 1, 64, 5, '2025-05-23 19:15:10'),
+(158, 2, 1, 65, 7, '2025-05-25 11:30:35'),
+(159, 3, 1, 52, 5, '2025-05-27 14:45:00'),
+(160, 2, 1, 53, 7, '2025-05-30 17:00:25');
 
 -- --------------------------------------------------------
 
@@ -179,12 +208,10 @@ CREATE TABLE `produits` (
 --
 
 INSERT INTO `produits` (`pid`, `name`, `description`, `price`, `file`, `type`) VALUES
-(49, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.  Size of each approximately 15 3/4\" H', 499, '1747100597_craft2.jpg', 'lunch'),
-(50, 'Tikog Bag', 'The age-old tradition of mat weaving using tikog, a naturally grown grass used to be for personal use only.', 99, '1747100932_weav4.png', 'breakfast'),
 (52, 'Acacia Bowl', 'A beautiful set consisting of one larger and six smaller bowls in a simple, cylindrical shape. Made of light tropical wood. Handcrafted in the Philippines', 200, '1747101721_craft1.png', 'lunch'),
 (53, 'Bamboo flask', 'These Bamboo Flasks have lots of Eco-appeal and a high perceived value with their stainless steel finish. Designed to hold an individual cup of coffee or tea.', 799, '1747102827_craft4.png', 'lunch'),
 (54, 'Carved Fishing boy ', 'Hand-carved wooden figure from Paete, Philippines, depicting a boy spearing fish. He holds a traditional fishing spear, with one fish caught and another at his feet, set on a sculpted base.', 899, '1747103054_craft5.png', 'lunch'),
-(55, 'Abaca purse', 'Handwoven indigenous covers can be made from abaca fabrics such as T\'nalak or Hinabol (Bukidnon), cotton-based fabrics such as Ramit from Binakol  weaves.', 499, '1747103623_Weav1.png', 'breakfast'),
+(55, 'Abaca purse', 'Handwoven indigenous covers can be made from abaca fabrics such as T\'nalak or Hinabol (Bukidnon), cotton-based fabrics such as Ramit from Binakol  weaves.', 399, '1747103623_Weav1.png', 'breakfast'),
 (56, 'Willow Basket', 'Willow baskets feature supple, breathable and very light weight. Rich with a beautiful candy color due to natural discoloration when drying', 399, '1747104460_weav3.png', 'breakfast'),
 (57, 'Rattan Basket', 'Woven Rattan Basket. This basket would be used to carry fruits and vegetables from local markets. This basket would be a lovely addition to your collection or to display in your home.\r\n', 199, '1747106393_weav9.png', 'breakfast'),
 (58, 'Last Supper ', 'Last Supper carved from wood its good for house decorations it gives spiritual presence in the households.', 1499, '1747107631_craft8.jpg', 'lunch'),
@@ -192,7 +219,8 @@ INSERT INTO `produits` (`pid`, `name`, `description`, `price`, `file`, `type`) V
 (60, 'Habol', 'Habol is a woven in a precise way it composed with abaca or pinya fabric. It\'s characterized by its vibrant colors and distinctive plaid or checkered patterns.', 299, '1747109512_weav11.png', 'breakfast'),
 (61, 'Banig', 'This banig is used for sleeping in the kubo or in the floor it gives warm and comfy feeling when you sleep on it.', 299, '1747109925_weav12.png', 'breakfast'),
 (62, 'Bamboo flute', 'Played by blowing the instrument with the nose rather than the mouth. Holding one nostril shut with thumb or finger.', 499, '1747112343_craft9.png', 'lunch'),
-(64, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.', 499, '1747119255_craft2.jpg', 'lunch');
+(64, 'Bulul', 'Hand carved Filipino Bulul rice god figures, each depicted in a seated position with their knees pulled to their chests and arms resting on their knees.', 499, '1747119255_craft2.jpg', 'lunch'),
+(65, 'Tikog Bag', 'The age-old tradition of mat weaving using tikog, a naturally grown grass used to be for personal use only.', 199, '1747553978_weav4.png', 'breakfast');
 
 -- --------------------------------------------------------
 
@@ -273,7 +301,7 @@ ALTER TABLE `car`
 -- AUTO_INCREMENT for table `chariot`
 --
 ALTER TABLE `chariot`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=252;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=258;
 
 --
 -- AUTO_INCREMENT for table `clients`
@@ -291,13 +319,13 @@ ALTER TABLE `employé`
 -- AUTO_INCREMENT for table `ordre`
 --
 ALTER TABLE `ordre`
-  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=133;
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
 -- AUTO_INCREMENT for table `produits`
 --
 ALTER TABLE `produits`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- Constraints for dumped tables
