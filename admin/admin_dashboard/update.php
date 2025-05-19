@@ -39,7 +39,18 @@ $data = $res->fetch();
 
             <div class="form-group">
                 <label class="form-label-group" for="desc"> Description </label>
-                <textarea name="desc" id="desc" cols="60" rows="10" placeholder="Description" ><?php echo $data['description'];?></textarea>
+                <textarea 
+                 name="desc" 
+                 id="desc" 
+                 class="form-control" 
+                 rows="5" 
+                 placeholder="Description"
+                 style="
+                 width: 100%;
+                 max-width: 100%;
+                 resize: vertical;
+                 overflow-y: auto;
+                 min-height: 100px;"><?php echo $data['description']; ?></textarea>
             </div>
     
 

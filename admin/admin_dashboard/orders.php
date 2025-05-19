@@ -200,7 +200,19 @@ $data2 = $res2->fetch();
                   <tr>
                     <td><?php echo $data['oid'];?></td>
                     <td><?php echo $data['qty'];?></td>
-                    <td><?php echo $data['status'];?></td>
+                    
+
+                    <td>
+                      <?php 
+                        if ($data['status'] == 0) {
+                          echo "Weaving";
+                         } elseif ($data['status'] == 1) {
+                          echo "Wood Carving";
+                         } else {
+                          echo "Unknown";
+                       }?>
+                       </td>
+
                     <td><?php echo $data['pid'];?></td>
                     <td><?php echo $data['cid'];?></td>
                   </tr>
