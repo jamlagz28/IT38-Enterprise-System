@@ -1,68 +1,106 @@
-<html>
-    <head>
-    <title>Bukid Craft</title>
-    <link rel="stylesheet" href="../../bootstrap4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/loginc.css" class="css">
-    <link rel="stylesheet" href="../../css/style.css" class="css">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bukid Crafts - Add Product</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <style>
+    <!-- Bootstrap & Custom CSS -->
+    <link rel="stylesheet" href="../../bootstrap4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/loginc.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <style>
         body {
             background-image: url('https://media.istockphoto.com/id/465559373/photo/old-wood-background.jpg?s=612x612&w=0&k=20&c=mQ5fJU_4IwgCB8VK6g551yNVzsQJn7ZYpI8Ua6TeC0I%3D');
             background-repeat: no-repeat;
             background-size: cover;
-            background-position: center center;
+            background-position: center;
             background-attachment: fixed;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .form-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            margin-top: 60px;
+        }
+
+        .form-wrapper h2 {
+            color: #333;
+            font-weight: 700;
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        .btn-primary {
+            background-color: #0066b2;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #034694;
         }
     </style>
-    
-    </head>
-    <body>
-   
+</head>
+<body>
 
-      <div class="container">
-      <div class="shadow-lg bg-white rounded testmarg">
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
-      <div class="text-center">
-      <h2>Add Product</h2><br>
-          </div>
-            <div class="form-group">
-            <label for="name"> Name </label>
-            <input type="text" name="name" placeholder="product name" class="form-control" required> 
-            </div>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="form-wrapper shadow">
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST" enctype="multipart/form-data">
+                    <div class="text-center mb-4">
+                        <h2>Add Product</h2>
+                    </div>
 
-            <div class="form-group">
-            <label for="price"> Price </label>
-            <input type="number" name="price" placeholder="Product Price"  id="price" class="form-control" required>
-            <span class="text-danger"><?php if (isset($price_error)) echo $price_error; ?></span>  
-            </div>
+                    <div class="form-group">
+                        <label for="name">Product Name</label>
+                        <input type="text" name="name" placeholder="Enter product name" class="form-control" required>
+                    </div>
 
-            <div class="form-group">
-                <label class="form-label-group" for="desc"> Description </label>
-                <textarea name="desc" id="desc" class="form-control" placeholder="Description" rows="5"></textarea>
-                <span class="text-danger"><?php if (isset($desc_error)) echo $desc_error; ?></span>
-            </div>
-            <div class="form-group">
-                <label class="form-label-group" for="type"> Type </label>
-                <select name="type" class="form-control" required>
-                    <option value="none" default> Choose Type </option>
-                    <option value="breakfast"> Weaving </option>
-                    <option value="lunch"> Wood Carving </option>
-                </select>
-                <span class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></span>
-            </div>
-    
-            <div class="form-group">
-                <input type="file" class="form-controle" name="pic">
-            </div>
-            <span class="text-danger"><?php if (isset($file_error)) echo $file_error; ?></span>
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" name="price" id="price" placeholder="Enter price" class="form-control" required>
+                        <small class="text-danger"><?php if (isset($price_error)) echo $price_error; ?></small>
+                    </div>
 
-       <div class="d-flex justify-content-between mt-3">
-    <button type="submit" name="submit" class="btn btn-primary btn-shadow btn-lg">Submit</button>
-    <a href="index.php" class="btn btn-secondary btn-shadow btn-lg">Back</a>
+                    <div class="form-group">
+                        <label for="desc">Description</label>
+                        <textarea name="desc" id="desc" class="form-control" rows="4" placeholder="Write a product description..."></textarea>
+                        <small class="text-danger"><?php if (isset($desc_error)) echo $desc_error; ?></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="type">Type</label>
+                        <select name="type" class="form-control" required>
+                            <option value="none">Choose Type</option>
+                            <option value="breakfast">Weaving</option>
+                            <option value="lunch">Wood Carving</option>
+                        </select>
+                        <small class="text-danger"><?php if (isset($type_error)) echo $type_error; ?></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pic">Product Image</label>
+                        <input type="file" name="pic" class="form-control-file">
+                        <small class="text-danger"><?php if (isset($file_error)) echo $file_error; ?></small>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg px-5 mt-3">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-            </form>
-      </div>
-      </div>
-      <script src="../../bootstrap4/js/bootstrap.min.js"></script>
-            </body>
+
+<!-- Bootstrap JS -->
+<script src="../../bootstrap4/js/bootstrap.min.js"></script>
+</body>
 </html>

@@ -49,6 +49,10 @@ if (isset($_SESSION['name']) != "") {
         .form-group label {
             font-weight: 500;
         }
+
+        .login-link {
+            margin-top: 15px;
+        }
     </style>
 </head>
 <body>
@@ -103,6 +107,11 @@ if (isset($_SESSION['name']) != "") {
 
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary btn-shadow btn-lg">Create</button>
+
+                    <!-- New Login Button -->
+                    <div class="login-link mt-3">
+                        <a href="loginc.php" class="btn btn-link">Already have an account? Login Here</a>
+                    </div>
                 </div>
             </form>
         </div>
