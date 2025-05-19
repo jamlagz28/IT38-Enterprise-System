@@ -100,6 +100,36 @@ class Adminstrator
     }
 }
 
+public function get_total_sales() {
+    $sql = $this->pdo->prepare("
+        SELECT SUM(p.price * o.qty) AS total_sales
+        FROM ordre o
+        JOIN produits p ON o.pid = p.pid
+    ");
+    $sql->execute();
+    return $sql;
+}
+
+
+public function get_monthly_sales() {
+    $sql = $this->pdo->prepare("
+        SELECT 
+            DATE_FORMAT(o.order_date, '%M') AS month, 
+            MONTH(o.order_date) AS month_num,
+            SUM(p.price * o.qty) AS sales
+        FROM ordre o
+        LEFT JOIN produits p ON o.pid = p.pid
+        WHERE o.order_date IS NOT NULL
+        GROUP BY MONTH(o.order_date), DATE_FORMAT(o.order_date, '%M')
+        ORDER BY MONTH(o.order_date)
+    ");
+    $sql->execute();
+    return $sql;
+}
+
+
+
+
     public function send_email($name,$email,$password){
 
 $mesg = '';

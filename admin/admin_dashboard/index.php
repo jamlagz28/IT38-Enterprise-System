@@ -15,6 +15,8 @@ require 'dash_classes/admin.class.php';
 $emp = new Adminstrator;
 $res2 = $emp->number_of_orders();
 $data2 = $res2->fetch();
+$salesTotal = $emp->get_total_sales()->fetch()['total_sales'];
+$monthlySales = $emp->get_monthly_sales()->fetchAll();
 
 ?>
 
@@ -42,6 +44,34 @@ $data2 = $res2->fetch();
         background-size: cover;
         background-position: center center;
         background-attachment: fixed;
+    }
+        
+    .container {
+        padding: 0 20px;
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+
+    .card {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+    }
+
+    .card-header {
+        font-size: 1.25rem;
+    }
+    
+    .chart-container {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
+    .sales-card {
+        background: rgba(255,255,255,0.9);
+        margin: 20px auto;
+        width: 95%;
+        max-width: 1000px;
     }
   </style>
 
@@ -172,12 +202,30 @@ $data2 = $res2->fetch();
               </div>
             </div>
 
+
+            
           </div>
         </div>
 
       </div>
       <!-- /.container-fluid -->
-
+<div class="row mt-4">
+              <div class="col-12">
+                <div class="card mb-4 sales-card">
+                  <div class="card-header bg-primary text-white">
+                    <i class="fas fa-chart-line"></i> Sales Overview
+                  </div>
+                  <div class="card-body p-4">
+                    <div class="chart-container">
+                      <canvas id="salesChart" style="width: 100%; height: 300px;"></canvas>
+                    </div>
+                  </div>
+                  <div class="card-footer small text-muted">
+                    Total Sales: ₱<?php echo number_format($salesTotal, 2); ?>
+                  </div>
+                </div>
+              </div>
+            </div>
     </div>
     <!-- /.content-wrapper -->
   </div>
@@ -216,6 +264,76 @@ $data2 = $res2->fetch();
   <script src="../style/js/sb-admin.min.js"></script>
   <script src="../style/js/demo/datatables-demo.js"></script>
   <script src="../style/js/demo/chart-area-demo.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Sample data, replace these with actual PHP data 
+        const months = <?php echo !empty($monthlySales) ? json_encode(array_column($monthlySales, 'month')) : '[]' ?>;
+        const salesData = <?php echo !empty($monthlySales) ? json_encode(array_map('floatval', array_column($monthlySales, 'sales'))) : '[]' ?>;
+
+        if (months.length > 0 && salesData.length > 0) {
+            const ctx = document.getElementById("salesChart").getContext("2d");
+            new Chart(ctx, {
+                type: "line",
+                data: {
+                    labels: months,
+                    datasets: [{
+                        data: salesData,
+                        borderColor: "rgba(78, 115, 223, 1)",
+                        borderWidth: 2,
+                        backgroundColor: "transparent",
+                        pointBackgroundColor: "rgba(78, 115, 223, 1)",
+                        pointBorderColor: "#fff",
+                        pointBorderWidth: 2
+                    }]
+                },
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false // This completely removes the legend box
+                        },
+                        tooltip: {
+                            enabled: true,
+                            callbacks: {
+                                title: function(context) {
+                                    // Show the month label only
+                                    return context[0].label;
+                                },
+                                label: function(context) {
+                                    // Show the sales value with a prefix text
+                                    return 'Sales: ₱' + context.formattedValue;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: "Month"
+                            },
+                            grid: {
+                                display: false
+                            }
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: "Sales (₱)"
+                            },
+                            grid: {
+                                color: "rgba(0, 0, 0, 0.05)"
+                            }
+                        }
+                    }
+                }
+            });
+        } else {
+            document.getElementById("salesChart").innerHTML = 
+                '<div class="alert alert-warning">No sales data available</div>';
+        }
+    </script>
+
 
 </body>
 </html>
